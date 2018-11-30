@@ -1,0 +1,112 @@
+
+/* ================华丽的分割线====================== */
+
+/* 右边正文部分 */
+/* .content-right {
+  margin-left: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+/* 发布内容的部分 */
+.content-right .header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+/* ================华丽的分割线====================== */
+/* 标题样式 */
+.content-right .header .new-header {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px;
+  border: 1px solid #e5e5e5;
+  box-shadow: #e5e5e5 1px 1px 2px;
+}
+
+.content-right .header .new-header p {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0px;
+  vertical-align: middle;
+}
+
+/* ================华丽的分割线====================== */
+
+/* 发布内容界面 */
+.new-body {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.new-body form {
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+.new-body form label{
+  font-size: 25px;
+}
+
+.new-body input {
+  width: 400px;
+}
+
+.new-body select {
+  width: 300px;
+}
+
+.new-body .text-area {
+  width: 100%;
+  height: 400px;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: #e5e5e5 0px 2px 2px;
+}
+
+/* 列表界面 */
+
+/* 分页界面 */
+.news-pages{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top:20px;
+}
+
+
+.show-img .media {
+  display: flex;
+}
+
+.show-img .media-middle {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0px;
+  margin-right: 10px;
+}
+
+.show-img .media img {
+  height: 100%;
+}
+.show-img .media-body{
+  width: 80%;
+}
+.show-img .media a{
+  display: inline-block;
+  height:45px;
+}
+
+/* ================华丽的分割线====================== */

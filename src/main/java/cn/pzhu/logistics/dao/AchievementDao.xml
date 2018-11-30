@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.pzhu.logistics.dao.AchievementDao">
+    <resultMap id="result" type="cn.pzhu.logistics.pojo.Result">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="path" property="path"/>
+    </resultMap>
+    <select id="selectResult" resultMap="result" >
+        SELECT * FROM result LIMIT ${start},${num}
+    </select>
+    <insert id="insertResult" parameterType="result">
+        insert into result (title, content, path) values (#{title},#{content},#{path})
+    </insert>
+    <select id="selectResultCount" resultType="java.lang.Integer">
+        select count(*) from result
+    </select>
+    <delete id="deleteAchievement" parameterType="java.lang.Integer">
+        delete from result where id = ${id};
+    </delete>
+</mapper>

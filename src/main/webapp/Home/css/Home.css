@@ -1,0 +1,339 @@
+/* 初始化样式 */
+body {
+    margin: 0;
+    padding: 0;
+    background: #e5e5e5;
+    overflow-x: hidden;
+    padding-bottom: 20px;
+
+}
+
+/* ================华丽的分割线====================== */
+
+
+/* ================华丽的分割线====================== */
+
+/* 首页的导航栏 */
+.navbar {
+    background-color: rgb(71, 108, 145);
+    color: white;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px;
+    border-radius: 0px;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-around;
+}
+
+#bs-example-navbar-collapse-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .nav .navbar-nav {
+    margin-left: 100px;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+    font-weight: 700;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+    font-weight: 700;
+}
+
+/* ================华丽的分割线====================== */
+
+/* 轮播图样式 */
+.lb{
+    padding: 0px;
+}
+.lunbotu {
+    width: 100%;
+    height: 450px;
+    margin: auto 10px;
+    margin-top: -22px;
+
+}
+
+.swiper-container {
+    width: 100%;
+    height: 450px;
+}
+
+.swiper-slide {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.swiper-slide img{
+    width: 100%;
+}
+
+/* ================华丽的分割线====================== */
+
+/* 中间新闻部分样式 */
+.icon {
+    width: 2em;
+    height: 2em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+.all-new {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-around */
+    flex-wrap: wrap;
+
+}
+
+/* 工作动态和通知公告 */
+.inner {
+    width: 65%;
+    height: 340px;
+    margin-top: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.inner .new {
+    width: 50%;
+    height: 100%;
+    margin: auto 5px;
+}
+
+/* 部门介绍样式 */
+.introduction-news {
+    width: 360px;
+    height: 340px;
+    margin-top: 5px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.introduction-news .panel-body {
+    min-height: 180px;
+}
+
+.introduction-news .introduction-img {
+    width: 100%;
+    height: 108px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: -10px;
+}
+
+/* 新闻面板统一样式 */
+.panel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    font-weight: 700;
+}
+
+.panel-heading p {
+    margin: 0px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.panel-body {
+    min-height: 300px;
+}
+
+.panel-body .new-ul {
+    width: 100%;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.panel-body .new-ul li {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2px;
+    line-height: 30px;
+}
+
+.panel-body .new-ul li a {
+    text-decoration: none;
+    color: black;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+}
+
+.panel-body .new-ul li a:hover {
+    cursor: pointer;
+    color: rgb(51, 130, 189);
+}
+
+.panel-body .new-ul li .new-title {
+    width: 70%;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin: 0px;
+}
+.panel-body .introduction {
+    width: 100%;
+    height: 100%;
+}
+
+.panel-body .introduction .title{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+.panel-body .introduction .content{
+    padding: 5px;
+    width: 100%;
+    height: 125px;
+    text-indent: 2em;
+    font-size: 15px;
+    overflow: auto;
+}
+
+    /* 信息反馈 */
+.information-new .panel-body .explain {
+    font-size: 12px;
+    font-weight: normal;
+    padding: 3px;
+    max-height: 100px;
+    overflow: auto;
+    padding-bottom: 1px;
+    text-overflow: ellipsis;
+
+}
+
+.information-new .panel-body .title {
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+}
+
+/* 政策文件 */
+.policy-news .panel-body {
+    min-height: 300px;
+}
+
+/* ================华丽的分割线====================== */
+
+/* 友情链接 */
+.friend-link {
+    width: 100%;
+    height: 50px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.friend-link .title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    height: 100%;
+    line-height: 50px;
+    margin: 0px;
+}
+
+.friend-link .address {
+    height: 100%;
+    line-height: 50px;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+
+}
+
+.friend-link .address li {
+    margin-left: 20px;
+}
+
+.friend-link .address li a {
+    color: black;
+    font-size: 13px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.friend-link .address li a:hover {
+    cursor: pointer;
+    color: rgb(51, 130, 189);
+}
+
+.icon-lianjie {
+    width: 2em;
+    height: 2em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/* ================华丽的分割线====================== */
+/* 页脚 */
+.footer {
+    width: 100%;
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer span {
+    text-align: center;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    margin: 5px auto;
+}
+
+/* ================华丽的分割线====================== */
+
+/* 回到顶部 */
+.back-header {
+    width: 50px;
+    height: 50px;
+    z-index: 999;
+    bottom: 60px;
+    right: 50px;
+    position: fixed;
+    display: none;
+}
+
+.back-header:hover {
+    cursor: pointer;
+}
+
+.icon-icon-test {
+    width: 4em;
+    height: 4em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}

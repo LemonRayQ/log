@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.pzhu.logistics.dao.VisitDao">
+    <select id="selectVisit" resultType="Integer">
+        select visit_count from visit where visit_id = 1
+    </select>
+
+    <update id="updateCount">
+        update visit set visit_count = visit_count+1
+    </update>
+</mapper>

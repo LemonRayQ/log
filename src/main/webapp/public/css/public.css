@@ -1,0 +1,175 @@
+/* 初始化样式 */
+body {
+    margin: 0;
+    padding: 0;
+    background: #e5e5e5;
+    overflow-x: hidden;
+}
+
+/* ================华丽的分割线====================== */
+
+
+/* 头部的图片的文字 */
+.header {
+    width: 100%;
+    overflow: hidden;
+    background-image: url(../images/bg3.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 0px;
+}
+
+.header .header-logo {
+    width: 100%;
+    height: 105px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.header .header-logo .logo-left {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.header .header-logo .logo-left .logo-img {
+    width: 15%;
+    height: 105px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .header-logo .logo-left .logo-img img {
+    height: 90%;
+}
+
+.header .header-logo .logo-left .logo-text {
+    width: 85%;
+    height: 105px;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0%;
+}
+
+.header .header-logo .logo-left .logo-text img {
+    width: 100%;
+
+}
+
+.header .header-logo .logo2 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.header .header-logo .logo2 img{
+    width: 100%;
+    position: relative;
+    left: 57%;
+}
+
+/* ================华丽的分割线====================== */
+
+
+/* 首页的导航栏 */
+.navbar {
+    background-color: rgb(71, 108, 145);
+    color: white;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px;
+    border-radius: 0px;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: space-around;
+}
+
+#bs-example-navbar-collapse-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .nav .navbar-nav {
+    margin-left: 100px;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>.active>a:hover {
+    font-weight: 700;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+    font-weight: 700;
+}
+
+/* ================华丽的分割线====================== */
+
+/* 页脚 */
+.footer {
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 20px;
+
+}
+
+.footer span {
+
+    font-size: 14px;
+    font-weight: 700;
+    margin: 5px auto;
+}
+
+/* ================华丽的分割线====================== */
+
+/* 回到顶部 */
+.back-header {
+    width: 50px;
+    height: 50px;
+    z-index: 999;
+    bottom: 60px;
+    right: 50px;
+    position: fixed;
+    display: none;
+}
+
+.back-header:hover {
+    cursor: pointer;
+}
+
+.icon-icon-test {
+    width: 4em;
+    height: 4em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+.content-news .a-pages{
+    display: flex;
+    justify-content: center;
+}
+.content-news{
+    width: 100%;
+}
+.lookthrough{
+    position: relative;
+    top: 30%;
+    left: -15%;
+    white-space: nowrap;
+    color: white;
+    font-size: 14px;
+}

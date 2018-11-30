@@ -1,0 +1,43 @@
+.review-item{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    box-shadow: #e5e5e5 0px 0px 2px 2px;
+    margin-bottom: 15px;
+}
+.review-item .review-title{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.review-item .review-title .title{
+    width: 60%;
+    display: flex;
+    justify-content: space-between; 
+    font-size: 18px;
+    font-weight: 700;
+}
+.review-item .review-title .title .text{
+    width: 40%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
+.review-item .review-info .well{
+    letter-spacing: 2px;
+    text-indent: 2em;
+    line-height: 25px;
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{
+    left:170px;
+}
+.new-body input, select{
+    width: 25px;
+}
+

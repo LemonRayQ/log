@@ -1,0 +1,172 @@
+/* 成果展示区 */
+/* 图片大小 225*226 */
+body {
+    position: relative;
+}
+
+.achievement {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.achievement .a-imgs {
+    width: 100%;
+    max-height: 950px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.achievement .a-imgs .thumbnail {
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    padding: 2px;
+    margin-left: 40px;
+    margin-top: 10px;
+    transition:.4s;
+}
+
+.achievement .a-imgs .thumbnail img {
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.achievement .a-imgs .thumbnail:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: white 0px 0px 4px 4px;
+}
+
+.achievement .a-imgs .thumbnail .caption {
+    padding: 5px;
+    margin: 0px;
+    margin-top: 2px;
+    background-color: #e5e5e5;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.achievement .a-imgs .thumbnail .caption p {
+    margin: 0px;
+    color: black;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* 放大预览图片 */
+.preview {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    display: none;
+}
+
+.preview .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.preview .content .bigimg {
+    width:100%;
+    height: 600px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview .content .bigimg img {
+    height: 100%;
+}
+
+/* 文字 */
+.preview .content .text {
+    margin-top: 20px;
+    width: 90%;
+    font-size: 18px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    letter-spacing: 2px;
+    text-indent: 2em;
+    line-height: 25px;
+}
+
+
+/* 左右切换 */
+.preview .left {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    font-size: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    opacity: 0.5;
+}
+
+.preview .left:hover {
+    cursor: pointer;
+    opacity: 1;
+    -weblit-transform-style: 200s;
+    -moz-transform-style:200s;
+    -o-transform-style: 200S;
+    /*transform-style: 200S;*/
+}
+
+.preview .right {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    top: 50%;
+    font-size: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    opacity: 0.5;
+}
+
+.preview .right:hover {
+    cursor: pointer;
+    opacity: 1;
+    -weblit-transform-style: 200s;
+    -moz-transform-style:200s;
+    -o-transform-style: 200S;
+
+}
+
+/* 关闭按钮 */
+.preview .close {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    top: 10%;
+    color: red;
+    font-size: 40px;
+}

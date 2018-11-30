@@ -1,0 +1,105 @@
+
+/* ================华丽的分割线====================== */
+/* 标题样式 */
+.content-right .header .new-header {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px;
+  border: 1px solid #e5e5e5;
+  box-shadow: #e5e5e5 1px 1px 2px;
+}
+
+.content-right .header .new-header p {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0px;
+  vertical-align: middle;
+}
+
+/* ================华丽的分割线====================== */
+
+/* 发布内容界面 */
+.new-body {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-body form {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.new-body input,
+select {
+  width: 300px;
+}
+
+.new-body select {
+  width: 300px;
+}
+
+.new-body .text-area {
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: #e5e5e5 0px 2px 2px;
+}
+
+/* 列表界面 */
+.show-news{
+  width: 100%;
+  padding: 20px;
+  margin-top: -30px;
+}
+.show-news th,td{
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 分页界面 */
+.news-pages{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+
+/* ================华丽的分割线====================== */
+/* 页脚 */
+.footer {
+  bottom: 0px;
+  width: 100%;
+  height: 100px;
+  box-shadow: #e5e5e5 1px 1px 5px inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(245, 247, 249);
+  padding: 24px 50px;
+  margin: 0px;
+}
+
+.footer span {
+  text-align: center;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  margin: 5px auto;
+}
+
+/* ================华丽的分割线====================== */

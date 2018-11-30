@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.pzhu.logistics.dao.ShufflingDao">
+    <!--查询所有信息-->
+    <resultMap id="select" type="cn.pzhu.logistics.pojo.Shuffling">
+        <id property="shufflingId" column="shuffling_id"/>
+        <result property="path" column="path"/>
+    </resultMap>
+    <select id="selectAllFromShuffling" resultMap="select">
+        select * from shuffling
+    </select>
+
+    <!--根据ID删除信息-->
+    <delete id="deleteById" parameterType="Integer">
+        delete from shuffling where shuffling_id = #{id}
+    </delete>
+
+    <!--插入图片-->
+    <insert id="insertImage" parameterType="cn.pzhu.logistics.pojo.Shuffling">
+        insert into shuffling(path) values(#{path})
+    </insert>
+
+    <!--根据ID查询-->
+    <resultMap id="selectById" type="cn.pzhu.logistics.pojo.Shuffling">
+        <id property="shufflingId" column="shuffling_id"/>
+        <result property="path" column="path"/>
+    </resultMap>
+    <select id="selectImageById" parameterType="Integer" resultMap="selectById">
+        select * from shuffling where shuffling_id = #{id}
+    </select>
+</mapper>

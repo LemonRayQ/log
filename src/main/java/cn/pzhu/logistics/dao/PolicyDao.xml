@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.pzhu.logistics.dao.PolicyDao">
+    <resultMap id="level" type="cn.pzhu.logistics.pojo.Level">
+        <id column="level_id" property="levelId"/>
+        <result column="name" property="name"/>
+    </resultMap>
+    <resultMap id="policy" type="cn.pzhu.logistics.pojo.Policy">
+        <id column="policy_id" property="policyId"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="time" property="time"/>
+        <result column="path" property="path"/>
+        <result column="level_id" property="levelId"/>
+        <result column="approval" property="approval"/>
+        <result column="importance" property="importance"/>
+        <association property="level" resultMap="level">
+            <id column="level_id" property="levelId"/>
+            <result column="name" property="name"/>
+        </association>
+    </resultMap>
+    <select id="selectLevel" resultMap="level">
+        select * from Level
+    </select>
+    <insert id="insertPolicy" parameterType="policy">
+        insert into Policy (title,content,time,path,level_id) values (#{title},#{content},#{time},#{path},#{levelId})
+    </insert>
+    <select id="selectPolicy" resultMap="policy" parameterType="java.lang.Integer">
+        SELECT policy_id,title,content,TIME,path,Level.name FROM
+        Policy,Level WHERE Level.level_id = Policy.level_id ORDER BY TIME DESC LIMIT ${start},5
+    </select>
+    <update id="updatePolicy" parameterType="policy">
+        update Policy set title = #{title},content = #{content},path = #{path},time = #{time} where policy_id = #{policyId}
+    </update>
+    <delete id="deletePolicy" parameterType="java.lang.Integer">
+        delete from Policy where policy_id = ${policyId}
+    </delete>
+    <select id="selectCountPolicy" resultType="java.lang.Integer">
+        select count(*) from Policy
+    </select>
+    <select id="selectAllPolicy" resultMap="policy">
+        select * from Policy
+    </select>
+    <select id="selectPolicyCount" resultType="java.util.Map">
+        select sum(case when level_id = #{status1} then 1 else 0 end) count1 ,
+        sum(case when level_id = #{status2} then 1 else 0 end) count2 ,
+        sum(case when level_id = #{status3} then 1 else 0 end) count3
+        from Policy
+    </select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <typeAliases>
+        <package name="cn.pzhu.logistics.pojo"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+                <property name="url" value="jdbc:sqlserver://172.31.13.65:1433;DatabaseName=Logistics"/>
+                <property name="username" value="sa"/>
+                <property name="password" value="214y9706*a"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <package name="cn.pzhu.logistics.dao"/>
+    </mappers>
+</configuration>

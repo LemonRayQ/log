@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.pzhu.logistics.dao.DepartDao">
+    <resultMap id="department" type="cn.pzhu.logistics.pojo.Department">
+        <id column="dept_id" property="deptId"/>
+        <result column="dept_name" property="name"/>
+    </resultMap>
+    <select id="select" resultMap="department" >
+        select * from department
+    </select>
+    <select id="selectDeptById" resultMap="department" parameterType="Integer">
+      select * from department where dept_id = #{id}
+    </select>
+    <insert id="insertDepartment" parameterType="String">
+        insert into department (dept_name) values (#{name})
+    </insert>
+    <update id="changeDepart">
+        update department set dept_name = #{name} where dept_id = #{deptId}
+    </update>
+</mapper>

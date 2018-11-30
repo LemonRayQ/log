@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="cn.pzhu.logistics.controller"/>
+    <context:property-placeholder location="classpath:db.properties"/>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${db.driver}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.user}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:sqlMapConfig.xml"/>
+    </bean>
+    <bean id="policyService" class="cn.pzhu.logistics.service.serviceImp.PolicyServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="userService" class="cn.pzhu.logistics.service.serviceImp.UserServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="shufflingService" class="cn.pzhu.logistics.service.serviceImp.ShufflingServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="newsService" class="cn.pzhu.logistics.service.serviceImp.NewsServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="departService" class="cn.pzhu.logistics.service.serviceImp.DepartServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="classifyService" class="cn.pzhu.logistics.service.serviceImp.ClassifyServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="linkService" class="cn.pzhu.logistics.service.serviceImp.LinkServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="achievementService" class="cn.pzhu.logistics.service.serviceImp.AchievementServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <bean id="visitService" class="cn.pzhu.logistics.service.serviceImp.VisitServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="officeDutyService" class="cn.pzhu.logistics.service.serviceImp.OfficeDutyServiceImp">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+    <bean id="userLoginController" class="cn.pzhu.logistics.controller.UserLoginController">
+        <property name="userService" ref="userService"/>
+        <property name="departService" ref="departService"/>
+        <property name="classifyService" ref="classifyService"/>
+        <property name="newsService" ref="newsService"/>
+    </bean>
+    <bean id="newsController" class="cn.pzhu.logistics.controller.NewsController">
+        <property name="newsService" ref="newsService"/>
+        <property name="shufflingService" ref="shufflingService"/>
+        <property name="linkService" ref="linkService"/>
+        <property name="officeDutyService" ref="officeDutyService"/>
+        <property name="classifyService" ref="classifyService"/>
+        <property name="departService" ref="departService"/>
+        <property name="visitService" ref="visitService"/>
+    </bean>
+    <bean id="utilController" class="cn.pzhu.logistics.controller.UtilController"/>
+    <bean id="linkController" class="cn.pzhu.logistics.controller.LinkController">
+        <property name="linkService" ref="linkService"/>
+    </bean>
+    <bean id="achievementController" class="cn.pzhu.logistics.controller.AchievementController">
+        <property name="achievementService" ref="achievementService"/>
+    </bean>
+    <bean id="govermentController" class="cn.pzhu.logistics.controller.GovermentController">
+
+    </bean>
+    <bean id="rulesController" class="cn.pzhu.logistics.controller.RulesController">
+        <property name="newsService" ref="newsService"/>
+    </bean>
+    <bean id="workController" class="cn.pzhu.logistics.controller.WorkController">
+        <property name="newsService" ref="newsService"/>
+        <property name="departService" ref="departService"/>
+    </bean>
+    <bean id="officeController" class="cn.pzhu.logistics.controller.OfficeController">
+        <property name="departService" ref="departService"/>
+        <property name="officeDutyService" ref="officeDutyService"/>
+    </bean>
+    <bean id="officeDutyController" class="cn.pzhu.logistics.controller.OfficeDutyController">
+        <property name="officeDutyService" ref="officeDutyService"/>
+        <property name="departService" ref="departService"/>
+    </bean>
+</beans>

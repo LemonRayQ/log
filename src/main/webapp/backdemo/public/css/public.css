@@ -1,0 +1,241 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+.container-fluid {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* 图标样式 */
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+/* 侧边栏部分 */
+.sidebar-left {
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  /* height: 1150px; */
+  background-color: rgb(73, 80, 96);
+  padding-top: 10px;
+}
+
+.sidebar-left p {
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px;
+  line-height: 50px;
+}
+
+.sidebar-left p:hover .s-title a {
+  cursor: pointer;
+  color: rgb(45, 140, 240);
+}
+
+.sidebar-left p .s-title a {
+  color: #e5e5e5;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+
+.active {
+  background-color: rgb(54, 62, 79)
+}
+
+/* 导航栏样式 */
+.sidebar-ul {
+  list-style: none;
+  margin: 0px;
+  padding-left: 0px;
+  border-bottom: 1px solid rgb(45, 140, 240);
+  background-color: #e5e5e5;
+  display: none;
+}
+
+.sidebar-ul li {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+
+.sidebar-ul li a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+
+}
+
+.sidebar-ul li a:hover {
+  color: rgb(45, 140, 240);
+  background-color: rgb(54, 62, 79);
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* ================华丽的分割线====================== */
+/* 标题样式 */
+.content-right {
+  margin-left: 200px;
+  width: 100%;
+  height: 100%;
+}
+
+.content-right .header .new-header {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 50px;
+  border: 1px solid #e5e5e5;
+  box-shadow: #e5e5e5 1px 1px 2px;
+
+}
+
+.content-right .header .new-header p {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0px;
+  vertical-align: middle;
+  color: black;
+}
+
+/* 发布内容界面 */
+.new-body {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.new-body form {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.new-body input,
+select {
+  width: 300px;
+}
+
+.new-body select {
+  width: 300px;
+}
+
+.new-body .text-area {
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: #e5e5e5 0px 2px 2px;
+}
+
+/* 列表界面 */
+.show-news {
+  width: 100%;
+  padding: 20px;
+  margin-top: -30px;
+}
+
+.show-news th,
+td {
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* 分页界面 */
+.news-pages {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+}
+
+
+/* ================华丽的分割线====================== */
+
+
+/* 公共样式 */
+
+/* 新闻列表中中的表格样式 */
+.show-news select {
+  width: 100px;
+  height: 25px;
+  border-radius: 5px;
+  margin-left: 30px;
+}
+
+.show-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.show-btn button {
+  margin-left: 20px;
+}
+
+.addworklabel {
+  width: 100%;
+  height: 100%;
+  padding: 20px ;
+  display: flex;
+  justify-content: space-evenly;
+}
+.addworklabel input {
+  width: 200px;
+  height: 100%;
+}
+.addworklabel .worklabel{
+  width: 50%;
+  padding: 0px 20px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.addworklabel .worklabel .btn{
+  width: 200px;
+}
+.addworklabel .worklabel .checkbox{
+  margin-left: 20px;
+}
+.addworklabel .worklabel label{
+  text-align: center;
+  display: flex;
+  vertical-align:middle;
+}
+.form-inline .checkbox input[type=checkbox], .form-inline .radio input[type=radio]{
+  width: 20px;
+  height: 20px;
+  margin:0px;
+}
+.modal.in .modal-dialog{
+  left: 5%;
+}
