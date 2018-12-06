@@ -14,8 +14,12 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 @Controller
 public class OfficeDutyController {
+
+
     @Resource(name = "officeDutyService")
     private OfficeDutyService officeDutyService;
+
+
     @Resource(name = "departService")
     private DepartService departService;
 
@@ -34,6 +38,7 @@ public class OfficeDutyController {
         session.setAttribute("depatment",departments);
         return "redirect:duty/duty.jsp";
     }
+
     @RequestMapping(value = "singleOfiice.mvc")
     public String singleOfiice(HttpSession session,Integer deptId){
         List<OfficeDuty> duties = officeDutyService.selectSingleOffice(deptId);

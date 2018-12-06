@@ -1,25 +1,41 @@
 package cn.pzhu.logistics.util;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.multipart.MultipartFile;
-import sun.misc.BASE64Decoder;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Base64;
 import java.util.UUID;
 
 public class FileUtil {
+
+    /**
+     * 上传文件到指定位置
+     * @param multipartFile
+     * @param path
+     * @return
+     * @throws IOException
+     */
     public static String uplodeFile(MultipartFile multipartFile,String path) throws IOException {
+
         String random = UUID.randomUUID().toString().substring(0, 5);
-        String name = path+random+"_"+multipartFile.getOriginalFilename();
+        String name = path+random+"_"+multipartFile.getOriginalFilename().replaceAll(" ","");
         multipartFile.transferTo(new File("/logistics/"+name));
         return (name).replaceAll("\\\\","/");
     }
 
+    /**
+     * 上传文件到指定位置，文件名为指定名字
+     * @param multipartFile
+     * @param path
+     * @param name
+     * @throws IOException
+     */
     public static void uplodeFile(MultipartFile multipartFile, String path, String name) throws IOException {
         multipartFile.transferTo(new File("/logistics/" + path + name));
     }
@@ -68,8 +84,10 @@ public class FileUtil {
         bufferedImage.getGraphics().drawImage(image.getScaledInstance((int) width, (int) height, Image.SCALE_AREA_AVERAGING), 0, 0, null);
         /*创建文件输出流*/
         FileOutputStream fileOutputStream = new FileOutputStream(file);
-        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(fileOutputStream);
-        encoder.encode(bufferedImage);
+        //ImageIO.write(dstImage, /*"GIF"*/ formatName /* format desired */ , new File(dstName) /* target */ );
+        ImageIO.write(bufferedImage,"JPEG",fileOutputStream);
+        /*JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(fileOutputStream);
+        encoder.encode(bufferedImage);*/
         /*关闭文件输出流*/
         fileOutputStream.close();
     }
@@ -95,7 +113,6 @@ public class FileUtil {
     }
 
     public static boolean deleteFile(String path){
-        /*String s = path.replaceAll("/", "\\\\");*/
         File file = new File("/logistics/" + path);
         if(file.exists()){
             return file.delete();
@@ -105,7 +122,6 @@ public class FileUtil {
     }
 
     public static File getFile(String filePath) {
-        /*String path = filePath.replaceAll("/", "\\\\");*/
         File file = new File("/logistics/"+filePath);
         return file;
     }
@@ -115,9 +131,9 @@ public class FileUtil {
         try {
             String[] baseStrs = base64.split(",");
 
-            BASE64Decoder decoder = new BASE64Decoder();
+            Base64.Decoder decoder = Base64.getDecoder();
             byte[] b = new byte[0];
-            b = decoder.decodeBuffer(baseStrs[1]);
+            b = decoder.decode(baseStrs[1]);
 
             for(int i = 0; i < b.length; ++i) {
                 if (b[i] < 0) {
@@ -125,7 +141,7 @@ public class FileUtil {
                 }
             }
             return new BASE64DecodedMultipartFile(b, baseStrs[0]);
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return null;
         }

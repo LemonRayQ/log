@@ -1,7 +1,6 @@
 package cn.pzhu.logistics.util;
 
 import org.springframework.web.multipart.MultipartFile;
-import sun.misc.BASE64Decoder;
 
 import java.io.*;
 

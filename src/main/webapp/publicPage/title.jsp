@@ -32,7 +32,7 @@
     <div class="container-fluid">
         <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="../Home/Home.jsp">首页</a></li>
+                <li><a href="../Home.mvc">首页</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">部门简介 <span class="caret"></span></a>
@@ -41,7 +41,7 @@
                         <li><a href="../OfficeDuty.mvc">科室主要职责</a></li>
                     </ul>
                 </li>
-                <li><a href="../selectNoticeNews.mvc?classId=6">政策文件</a></li>
+                <li><a href="../selectNoticeNews.mvc?classId=9">规章制度</a></li>
                 <li><a href="../selectWorkNews.mvc?classId=2">工作动态</a></li>
                 <li class="dropdown">
                     <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -53,7 +53,7 @@
                         <li><a href="../selectNoticeNews.mvc?classId=13"> 竞争性谈判公告</a></li>
                     </ul>
                 </li>
-                <li><a href="../selectPolicy.mvc">规章制度</a></li>
+                <li><a href="../selectPolicy.mvc">政策文件</a></li>
                 <li><a href="../selectNoticeNews.mvc?classId=8">党建廉政</a></li>
                 <li><a href="../selectContent.mvc?classId=5">服务指南</a></li>
                 <li><a href="../selectAchievement.mvc">成果展示</a></li>

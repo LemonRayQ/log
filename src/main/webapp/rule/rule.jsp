@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>政策文件</title>
     <!-- public样式 -->
     <link rel="stylesheet" href="../public/css/bootstrap.min.css">
     <link rel="stylesheet" href="../public/css/public.css">
@@ -71,11 +71,11 @@
                                     </svg>&nbsp;
                                 </span>
                                 &nbsp;&nbsp;
-                                <span class="title-header">规章制度</span>
+                                <span class="title-header">政策文件</span>
                             </p>
                             <ol class="breadcrumb">
                                 <li><a href="../Home/Home.jsp">网站首页</a></li>
-                                <li><a href="#">规章制度</a></li>
+                                <li><a href="#">政策文件</a></li>
                             </ol>
                         </div>
                         <div class="panel-body">
@@ -87,7 +87,7 @@
                                             <h4 class="panel-title">
                                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
                                                     aria-expanded="true" aria-controls="collapseOne">
-                                                    国家规章制度
+                                                    国家政策文件
                                                 </a>
                                             </h4>
                                         </div>
@@ -124,7 +124,7 @@
                                             <h4 class="panel-title">
                                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                                     href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                    省级规章制度
+                                                    省级政策文件
                                                 </a>
                                             </h4>
                                         </div>
@@ -159,7 +159,7 @@
                                             <h4 class="panel-title">
                                                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                                     href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                    校级规章制度
+                                                    校级政策文件
                                                 </a>
                                             </h4>
                                         </div>

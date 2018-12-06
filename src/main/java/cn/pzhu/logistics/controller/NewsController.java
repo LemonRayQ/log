@@ -129,12 +129,6 @@ public class NewsController {
         shuffl(session);
         List<Link> link = link();
         session.setAttribute("jumpLinks",link);
-        /*notice(session);
-        work(session);
-        rule(session);
-        government(session);
-        policy(session);
-        duty(session);*/
         session.setAttribute("homeFlag","yes");
         return "redirect:/Home/Home.jsp";
     }
@@ -148,51 +142,20 @@ public class NewsController {
         session.setAttribute("visit_count",num);
     }
 
-
     public List<Link> link(){
         return linkService.selectAllLink();
     }
-
 
     public void importance(HttpSession session){
         List<News> news = newsService.selectImportanceNews();
         session.setAttribute("impotanceNews",news);
     }
 
-    public void duty(HttpSession session){
-        List<OfficeDuty> duties = officeDutyService.selectOfficeDuty();
-        session.setAttribute("duties",duties);
-    }
-
-    public void shuffl(HttpSession session){
+    private void shuffl(HttpSession session){
         List<Shuffling> shufflings = shufflingService.selectAllFromShuffling();
         session.setAttribute("imageList",shufflings);
     }
 
-    public void notice(HttpSession session) {
-        List<News> list = newsService.selectSomeNews(1);
-        session.setAttribute("noticeList", list);
-    }
-
-    public void work(HttpSession session) {
-        List<News> list = newsService.selectSomeNews(2);
-        session.setAttribute("workList", list);
-    }
-
-    public void rule(HttpSession session) {
-        List<News> list = newsService.selectSomeNews(9);
-        session.setAttribute("ruleList", list);
-    }
-
-    public void government(HttpSession session) {
-        List<News> list = newsService.selectSomeNews(8);
-        session.setAttribute("governmentList", list);
-    }
-
-    public void policy(HttpSession session) {
-        List<News> list = newsService.selectSomeNews(6);
-        session.setAttribute("policyList", list);
-    }
 
     @RequestMapping(value = "notice")
     public String notice(int newsId, HttpSession session){

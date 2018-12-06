@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>登录</title>
     <!-- 引入bootstrap -->
     <link rel="stylesheet" href="../backdemo/public/css/bootstrap.min.css">
     <script type="text/javascript" src="../backdemo/public/js/jquery-3.3.1.min.js"></script>

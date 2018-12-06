@@ -28,7 +28,6 @@
 <body>
 <jsp:include page="../publicPage/title.jsp"/>
 
-
 <!-- 内容展示区域 -->
 <div class="container-fluid">
     <div class="rules-content">
