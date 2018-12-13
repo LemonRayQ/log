@@ -234,12 +234,18 @@ public class NewsController {
 
     @RequestMapping(value = "conditionsOfQueryNews")
     public String conditionsOfQueryNews(HttpSession session,String conditions,@Param(value = "classify_id") Integer classify_id){
+        if(classify_id == null){
+            classify_id = 2;
+        }
+
         List<News> news = newsService.conditionsOfQueryNews(conditions,classify_id);
+
         if(classify_id == 2){
             session.setAttribute("noticeNews",news);
         }else{
             session.setAttribute("noticeNews",news);
         }
+
         session.setAttribute("show",conditions);
         /*在通知公告页面查询*/
         if(classify_id == 2){
@@ -349,9 +355,9 @@ public class NewsController {
             case 3: return "redirect:duty/duty.jsp";
             case 4: return "redirect:achievement/achievement.jsp";
             case 5: return "redirect:introduce/introduce.jsp";
-            case 6: return "redirect:ammouncement/ammouncement.jsp";
-            case 8: return "redirect:ammouncement/ammouncement.jsp";
-            case 9: return "redirect:rule/rule.jsp";
+            case 6: return "redirect:announcement/announcement.jsp";
+            case 8: return "redirect:announcement/announcement.jsp";
+            case 9: return "redirect:announcement/announcement.jsp";
             default: return null;
         }
     }

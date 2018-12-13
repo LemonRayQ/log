@@ -2,11 +2,6 @@
 <html>
 <head>
     <title>Title</title>
-    <%--<link rel="stylesheet" href="../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../public/css/public.css">
-    <script src="../public/js/jquery-3.3.1.min.js"></script>
-    <script src="../public/js/bootstrap.min.js"></script>
-    <script src="../public/fonts/font_9rqbtihwbsm/iconfont.js"></script>--%>
 </head>
 <body>
 <!-- 头部图片和文字 -->
@@ -57,7 +52,7 @@
                 <li><a href="../selectNoticeNews.mvc?classId=8">党建廉政</a></li>
                 <li><a href="../selectContent.mvc?classId=5">服务指南</a></li>
                 <li><a href="../selectAchievement.mvc">成果展示</a></li>
-                <li><a href="../selectContent.mvc?classId=7">联系我们</a></li>
+                <li><a href="../connect/connect.jsp">联系我们</a></li>
             </ul>
         </div>
     </div>

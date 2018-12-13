@@ -13,7 +13,8 @@
     <meta content="" charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>图片管理</title>
+    <link rel="icon" href="../../title.ico" type="image/x-icon"/>
     <!-- 引入bootstrap -->
     <link rel="stylesheet" href="../public/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
@@ -448,10 +449,6 @@
 
                 </div>
                 <!-- 页脚 -->
-            </div>
-            <div class="footer">
-                <span>Copyright 2010-2011 Hqc.pzhu.edu.cn Inc.All Rights Reserved.攀枝花学院后勤管理处 版权所有 </span>
-                <span>地址：四川省攀枝花市东区机场路10号 电话：0812-85583114 邮编：617000 技术支持：苏俊</span>
             </div>
         </div>
     </div>

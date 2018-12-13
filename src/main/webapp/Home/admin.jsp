@@ -11,6 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>登录</title>
+    <link rel="icon" href="../title.ico" type="image/x-icon"/>
     <!-- 引入bootstrap -->
     <link rel="stylesheet" href="../backdemo/public/css/bootstrap.min.css">
     <script type="text/javascript" src="../backdemo/public/js/jquery-3.3.1.min.js"></script>
@@ -30,28 +31,21 @@
         <!-- 登录界面的样式 -->
         <div class="login-form">
             <form action="../login.mvc" method="POST" role="form">
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        </div>
-                        <input type="text" name="userId" class="form-control" placeholder="请输入账号">
+                    <div class="account">
+                        <label for="username">帐号</label>
+                        <input type="text" name="userId" id="username" class="form-c" placeholder="请输入账号">
                     </div>
 
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-                        </div>
-                        <input type="password" name="password" class="form-control" id="exampleInputAmount"
+                    <div class="pas">
+                        <label for="password">密碼</label>
+                        <input type="password" name="password" id="password" class="form-c" id="exampleInputAmount"
                                placeholder="请输入密码">
                     </div>
-                </div>
+
                 <input type="radio" name="identity" value="0" checked>管理员
                 <input type="radio" name="identity" value="1">超级管理员
                 <div class="form-group">
-                    <input type="submit" class="form-control btn btn-primary" value="登录">
+                    <input type="submit" class="btn btn-primary btn-login" value="登录">
                 </div>
             </form>
         </div>
