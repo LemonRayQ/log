@@ -7,14 +7,36 @@
 
     <mvc:annotation-driven/>
     <mvc:default-servlet-handler />
+
     <context:annotation-config/>
-    <context:component-scan base-package="cn.pzhu.logistics.controller"/>
+    <context:component-scan base-package="cn.pzhu.logistics"/>
+
     <context:property-placeholder location="classpath:db.properties"/>
+
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${db.driver}"/>
         <property name="url" value="${db.url}"/>
         <property name="username" value="${db.user}"/>
         <property name="password" value="${db.password}"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="connectionProperties" value="useUnicode=true;characterEncoding=UTF-8;serverTimezone=Asia/Shanghai;useSSL=false"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxActive" value="20"/>
+        <property name="maxIdle" value="20"/>
+        <property name="minIdle" value="10"/>
+        <property name="maxWait" value="5000"/>
+        <!-- 连接泄漏回收参数，当可用连接数少于3个时才执行 -->
+        <property name="removeAbandoned" value="true"/>
+        <!-- 连接泄漏回收参数 -->
+        <property name="removeAbandonedTimeout" value="10"/>
+
+        <property name="logAbandoned" value="true"/>
+        <!-- 每30秒运行一次空闲连接回收器 -->
+        <property name="timeBetweenEvictionRunsMillis" value="30000"/>
+        <!-- 每次检查连接的数量 -->
+        <property name="numTestsPerEvictionRun" value="20"/>
+        <!--连接保持空闲而不被驱逐-->
+        <property name="minEvictableIdleTimeMillis" value="1800000"/>
     </bean>
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="utf-8"/>
@@ -24,75 +46,25 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:sqlMapConfig.xml"/>
     </bean>
-    <bean id="policyService" class="cn.pzhu.logistics.service.serviceImp.PolicyServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="userService" class="cn.pzhu.logistics.service.serviceImp.UserServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="shufflingService" class="cn.pzhu.logistics.service.serviceImp.ShufflingServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="newsService" class="cn.pzhu.logistics.service.serviceImp.NewsServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="departService" class="cn.pzhu.logistics.service.serviceImp.DepartServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="classifyService" class="cn.pzhu.logistics.service.serviceImp.ClassifyServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="linkService" class="cn.pzhu.logistics.service.serviceImp.LinkServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="achievementService" class="cn.pzhu.logistics.service.serviceImp.AchievementServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/login"/>
+            <mvc:exclude-mapping path="/**/*.css"/>
+            <mvc:exclude-mapping path="/**/*.js"/>
+            <mvc:exclude-mapping path="/**/*.png"/>
+            <mvc:exclude-mapping path="/**/*.jpeg"/>
+            <mvc:exclude-mapping path="/**/*.gif"/>
+            <mvc:exclude-mapping path="/**/*.jpg"/>
+            <mvc:exclude-mapping path="/*.ico"/>
+            <bean class="cn.pzhu.logistics.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="suffix" value=".jsp"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
     </bean>
 
-    <bean id="visitService" class="cn.pzhu.logistics.service.serviceImp.VisitServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="officeDutyService" class="cn.pzhu.logistics.service.serviceImp.OfficeDutyServiceImp">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="userLoginController" class="cn.pzhu.logistics.controller.UserLoginController">
-        <property name="userService" ref="userService"/>
-        <property name="departService" ref="departService"/>
-        <property name="classifyService" ref="classifyService"/>
-        <property name="newsService" ref="newsService"/>
-    </bean>
-    <bean id="newsController" class="cn.pzhu.logistics.controller.NewsController">
-        <property name="newsService" ref="newsService"/>
-        <property name="shufflingService" ref="shufflingService"/>
-        <property name="linkService" ref="linkService"/>
-        <property name="officeDutyService" ref="officeDutyService"/>
-        <property name="classifyService" ref="classifyService"/>
-        <property name="departService" ref="departService"/>
-        <property name="visitService" ref="visitService"/>
-    </bean>
-    <bean id="utilController" class="cn.pzhu.logistics.controller.UtilController"/>
-    <bean id="linkController" class="cn.pzhu.logistics.controller.LinkController">
-        <property name="linkService" ref="linkService"/>
-    </bean>
-    <bean id="achievementController" class="cn.pzhu.logistics.controller.AchievementController">
-        <property name="achievementService" ref="achievementService"/>
-    </bean>
-    <bean id="govermentController" class="cn.pzhu.logistics.controller.GovermentController">
-
-    </bean>
-    <bean id="rulesController" class="cn.pzhu.logistics.controller.RulesController">
-        <property name="newsService" ref="newsService"/>
-    </bean>
-    <bean id="workController" class="cn.pzhu.logistics.controller.WorkController">
-        <property name="newsService" ref="newsService"/>
-        <property name="departService" ref="departService"/>
-    </bean>
-    <bean id="officeController" class="cn.pzhu.logistics.controller.OfficeController">
-        <property name="departService" ref="departService"/>
-        <property name="officeDutyService" ref="officeDutyService"/>
-    </bean>
-    <bean id="officeDutyController" class="cn.pzhu.logistics.controller.OfficeDutyController">
-        <property name="officeDutyService" ref="officeDutyService"/>
-        <property name="departService" ref="departService"/>
-    </bean>
 </beans>

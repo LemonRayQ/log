@@ -8,6 +8,6 @@
         <result column="identity" property="identity"/>
     </resultMap>
     <select id="login" parameterType="UserLogin" resultMap="userLogin">
-      select * from user_login where user_id = #{userId} and password = #{password} and identity = #{identity}
+      select * from user_login where user_id = #{userId} and identity = #{identity}
     </select>
 </mapper>

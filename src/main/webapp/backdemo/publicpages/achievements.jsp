@@ -14,36 +14,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>成果展示</title>
-    <link rel="icon" href="../../title.ico" type="image/x-icon"/>
+    <link rel="icon" href="<%=basePath%>title.ico" type="image/x-icon"/>
     <!-- 引入bootstrap -->
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=basePath%>backdemo/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="<%=basePath%>backdemo/publicpages/css/main.css">
 
     <!-- 引入图标样式 -->
-    <script src="../public/icon/font_9rqbtihwbsm/iconfont.js"></script>
+    <script src="<%=basePath%>backdemo/public/icon/font_9rqbtihwbsm/iconfont.js"></script>
     <!-- 引入公告样式 -->
-    <link rel="stylesheet" href="../public/css/public.css">
+    <link rel="stylesheet" href="<%=basePath%>backdemo/public/css/public.css">
     <!-- 引入自定义样式 -->
-    <link rel="stylesheet" href="./css/achievements.css">
+    <link rel="stylesheet" href="<%=basePath%>backdemo/publicpages/css/achievements.css">
 
     <%-- 引入文本编辑框 --%>
-    <link href="../news/editor/assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="../news/editor/assets/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../news/editor/assets/css/font-awesome-ie7.min.css"/>
-    <link rel="stylesheet" href="../news/editor/assets/css/jquery-ui-1.10.3.custom.min.css"/>
+    <link href="<%=basePath%>backdemo/news/editor/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/font-awesome-ie7.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/jquery-ui-1.10.3.custom.min.css"/>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
-    <link rel="stylesheet" href="../news/editor/assets/css/ace.min.css"/>
-    <link rel="stylesheet" href="../news/editor/assets/css/ace-rtl.min.css"/>
-    <link rel="stylesheet" href="../news/editor/assets/css/ace-skins.min.css"/>
-    <link rel="stylesheet" href="../news/editor/assets/css/ace-ie.min.css"/>
-    <script src="../news/editor/assets/js/ace-extra.min.js"></script>
+    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/ace-ie.min.css"/>
+    <script src="<%=basePath%>backdemo/news/editor/assets/js/ace-extra.min.js"></script>
 
     <script>
         function logout() {
-            window.location.href = "../../logout.mvc";
+            window.location.href = "./logout";
         }
     </script>
 </head>
@@ -66,8 +66,8 @@
             </span>
             </p>
             <ul class="sidebar-ul">
-                <li><a href="../../selectIntroduce.mvc">基建概况</a></li>
-                <li><a href="../../selectOfficeDuty.mvc">科室主要职责</a></li>
+                <li><a href="./selectIntroduce">基建概况</a></li>
+                <li><a href="./selectOfficeDuty">科室主要职责</a></li>
             </ul>
         </div>
         <!-- 政策文件 -->
@@ -80,7 +80,7 @@
             </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                <a href="../../selectPolicyLevel.mvc">政策文件</a>
+                <a href="./selectPolicyLevel">政策文件</a>
             </span>
             </p>
         </div>
@@ -95,7 +95,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../../selectWork.mvc">工作动态</a>
+                        <a href="./selectWork">工作动态</a>
                     </span>
             </p>
         </div>
@@ -110,7 +110,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../../selectHomeNews.mvc">通知公告</a>
+                        <a href="./selectHomeNews">通知公告</a>
 
                     </span>
             </p>
@@ -125,7 +125,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../../selectRules.mvc">规章制度</a>
+                        <a href="./selectRules">规章制度</a>
                     </span>
             </p>
         </div>
@@ -139,7 +139,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../../selectGoverment.mvc">党建廉政</a>
+                        <a href="./selectGoverment">党建廉政</a>
                     </span>
             </p>
         </div>
@@ -153,7 +153,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../..//selectServer.mvc">服务指南</a>
+                        <a href="./selectServer">服务指南</a>
                     </span>
             </p>
         </div>
@@ -167,7 +167,7 @@
             </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                <a href="../../selectAchievements.mvc">成果展示</a>
+                <a href="./selectAchievements">成果展示</a>
             </span>
             </p>
         </div>
@@ -181,7 +181,7 @@
             </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                <a href="../../selectImage.mvc">图片管理</a>
+                <a href="./selectImage">图片管理</a>
             </span>
             </p>
         </div>
@@ -194,7 +194,7 @@
             </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                <a href="../../selectFriendLink.mvc">友情链接</a>
+                <a href="./selectFriendLink">友情链接</a>
             </span>
             </p>
         </div>
@@ -208,7 +208,7 @@
                 </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                    <a href="../../selectApprovalNews.mvc">新闻审核</a>
+                    <a href="./selectApprovalNews">新闻审核</a>
                 </span>
                 </p>
             </div>
@@ -236,7 +236,7 @@
                         <div class="col-md-9">
                             <!-- <h3>Demo:</h3> -->
                             <div class="img-container">
-                                <img id="image" src="./images/picture.jpg" alt="Picture">
+                                <img id="image" src="<%=basePath%>backdemo/publicpages/images/picture.jpg" alt="Picture">
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -430,7 +430,7 @@
                 </div>
 
 
-                <form action="../../insertAchievement.mvc" method="POST" id="form" role="form"
+                <form action="./insertAchievement" method="POST" id="form" role="form"
                       enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="title">成果标题</label>
@@ -493,7 +493,7 @@
             $("#content").val($("#editor1").html());
             var form = new FormData(document.getElementById("form"));
             $.ajax({
-                url: "<%=basePath%>insertAchievement.mvc",
+                url: "<%=basePath%>insertAchievement",
                 type: "post",
                 data: form,
                 processData: false,
@@ -516,7 +516,7 @@
     
     function deleteAche(id) {
         $.ajax({
-            url: "<%=basePath%>deleteAchievement.mvc?index="+id,
+            url: "<%=basePath%>deleteAchievement?index="+id,
             type: "post",
             success: function (data) {
                 if(data === "false"){
@@ -537,30 +537,30 @@
 </html>
 
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='../news/editor/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    window.jQuery || document.write("<script src='<%=basePath%>backdemo/news/editor/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
 </script>
 
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='../news/editor/assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    window.jQuery || document.write("<script src='<%=basePath%>backdemo/news/editor/assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
 </script>
 <script type="text/javascript">
-    if ("ontouchend" in document) document.write("<script src='../news/editor/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    if ("ontouchend" in document) document.write("<script src='<%=basePath%>backdemo/news/editor/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
 </script>
-<script type="text/javascript" src="../news/editor/assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../news/editor/assets/js/typeahead-bs2.min.js"></script>
-<script type="text/javascript" src="../news/editor/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script type="text/javascript" src="../news/editor/assets/js/jquery.ui.touch-punch.min.js"></script>
-<script type="text/javascript" src="../news/editor/assets/js/markdown/markdown.min.js"></script>
-<script type="text/javascript" src="../news/editor/assets/js/markdown/bootstrap-markdown.min.js"></script>
-<script type="text/javascript" src="../news/editor/assets/js/jquery.hotkeys.min.js"></script>
-<script type="text/javascript" src="../news/editor/assets/js/bootstrap-wysiwyg.min.js"></script>
-<script type="text/javascript" src="../news/editor/assets/js/bootbox.min.js"></script>
-<script src="../news/editor/assets/js/ace-elements.min.js" type="text/javascript" charset="UTF-8"></script>
-<script type="text/javascript" src="../news/editor/assets/js/ace.min.js"></script>
-<script type="text/javascript" src="../publicpages/js/editor.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/typeahead-bs2.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/markdown/markdown.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/markdown/bootstrap-markdown.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/jquery.hotkeys.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/bootstrap-wysiwyg.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/bootbox.min.js"></script>
+<script src="<%=basePath%>backdemo/news/editor/assets/js/ace-elements.min.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/ace.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/publicpages/js/editor.js"></script>
 
 <script src="https://fengyuanchen.github.io/js/common.js"></script>
 <script src="https://unpkg.com/cropperjs/dist/cropper.js"></script>
-<script src="js/jquery-cropper.js"></script>
-<script src="js/main.js"></script>
-<script src="../public/js/public.js" type="text/javascript"></script>
+<script src="<%=basePath%>backdemo/publicpages/js/jquery-cropper.js"></script>
+<script src="<%=basePath%>backdemo/publicpages/js/main.js"></script>
+<script src="<%=basePath%>backdemo/public/js/public.js" type="text/javascript"></script>

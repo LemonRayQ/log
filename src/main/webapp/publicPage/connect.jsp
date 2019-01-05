@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<div class="panel panel-default">
+<div class="panel panel-default connectMe">
     <div class="panel-heading">
         <span>
             <svg class="icon" aria-hidden="true">
@@ -28,7 +28,7 @@
             <li>邮编: 617000</li>
             <li>电话: 0812-3370612</li>
             <li>E-mail: pdhqglc@163.com</li>
-            <li>网址:<a href="">hqc.pzhu.cn</a></li>
+            <li>网址:<a href="http://hgc.pzhu.cn" target="_blank">hqc.pzhu.cn</a></li>
         </ul>
     </div>
 </div>

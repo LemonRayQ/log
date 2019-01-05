@@ -27,4 +27,10 @@ public class UtilController {
         }
         return null;
     }
+
+    @RequestMapping(value = "connect")
+    public String connect(HttpServletRequest request) {
+
+        return "connect/connect";
+    }
 }

@@ -4,14 +4,12 @@ import cn.pzhu.logistics.pojo.Shuffling;
 import cn.pzhu.logistics.service.ShufflingService;
 import cn.pzhu.logistics.util.FileUtil;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -30,38 +28,38 @@ public class ShufflingController {
     }
 
     @RequestMapping(value = "insertImage")
-    public String insertImage(Shuffling shuffling, HttpServletRequest request) throws IOException {
+    public String insertImage(Shuffling shuffling, HttpServletRequest request, Model model) throws IOException {
 
         String base64Data = request.getParameter("base64Data");
         MultipartFile multipartFile = FileUtil.base64ToMultipart(base64Data);
 
         if (shufflingService.insertImage(shuffling, multipartFile)) {
-            request.getSession().setAttribute("insertImageFlag", "yes");
+            model.addAttribute("insertImageFlag", "yes");
             List<Shuffling> shufflings = shufflingService.selectAllFromShuffling();
-            request.getSession().setAttribute("imageList", shufflings);
+            model.addAttribute("imageList", shufflings);
         } else {
-            request.getSession().setAttribute("insertImageFlag", "no");
+            model.addAttribute("insertImageFlag", "no");
         }
-        return "redirect:backdemo/imgshow/img.jsp";
+        return "backdemo/imgshow/img";
     }
 
     @RequestMapping(value = "deleteImage")
-    public String deleteImage(String shuffling_id, HttpSession session) {
+    public String deleteImage(String shuffling_id, Model model) {
         int i = Integer.parseInt(shuffling_id);
         if (shufflingService.deleteById(i)) {
-            session.setAttribute("deleteImageFlag", "yes");
+            model.addAttribute("deleteImageFlag", "yes");
             List<Shuffling> shufflings = shufflingService.selectAllFromShuffling();
-            session.setAttribute("imageList", shufflings);
+            model.addAttribute("imageList", shufflings);
         } else {
-            session.setAttribute("deleteImageFlag", "no");
+            model.addAttribute("deleteImageFlag", "no");
         }
-        return "redirect:backdemo/imgshow/img.jsp";
+        return "backdemo/imgshow/img";
     }
 
     @RequestMapping(value = "selectImage")
-    public String selectImage(HttpSession session) {
+    public String selectImage(Model model) {
         List<Shuffling> shufflings = shufflingService.selectAllFromShuffling();
-        session.setAttribute("imageList", shufflings);
-        return "redirect:backdemo/imgshow/img.jsp";
+        model.addAttribute("imageList", shufflings);
+        return "backdemo/imgshow/img";
     }
 }

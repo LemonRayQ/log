@@ -14,22 +14,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>友情链接</title>
-    <link rel="icon" href="../../title.ico" type="image/x-icon"/>
+    <link rel="icon" href="<%=basePath%>title.ico" type="image/x-icon"/>
     <!-- 引入bootstrap -->
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-    <script src="../public/js/jquery-3.3.1.min.js"></script>
-    <script src="../public/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<%=basePath%>backdemo/public/css/bootstrap.min.css">
+    <script src="<%=basePath%>backdemo/public/js/jquery-3.3.1.min.js"></script>
+    <script src="<%=basePath%>backdemo/public/js/bootstrap.min.js"></script>
 
     <!-- 引入图标样式 -->
-    <script src="../public/icon/font_9rqbtihwbsm/iconfont.js"></script>
+    <script src="<%=basePath%>backdemo/public/icon/font_9rqbtihwbsm/iconfont.js"></script>
 
     <!-- 引入文本编辑器 -->
 
     <!-- 引入自定义样式 -->
-    <link rel="stylesheet" href="../public/css/public.css">
+    <link rel="stylesheet" href="<%=basePath%>backdemo/public/css/public.css">
     <script type="text/javascript">
         function logout() {
-            window.location.href = "../../logout.mvc";
+            window.location.href = "./logout";
         }
     </script>
 </head>
@@ -52,8 +52,8 @@
             </span>
             </p>
             <ul class="sidebar-ul">
-                <li><a href="../../selectIntroduce.mvc">基建概况</a></li>
-                <li><a href="../../selectOfficeDuty.mvc">科室主要职责</a></li>
+                <li><a href="./selectIntroduce">基建概况</a></li>
+                <li><a href="./selectOfficeDuty">科室主要职责</a></li>
             </ul>
         </div>
         <!-- 政策文件 -->
@@ -66,7 +66,7 @@
             </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                <a href="../../selectPolicyLevel.mvc">政策文件</a>
+                <a href="./selectPolicyLevel">政策文件</a>
             </span>
             </p>
         </div>
@@ -81,7 +81,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../../selectWork.mvc">工作动态</a>
+                        <a href="./selectWork">工作动态</a>
                     </span>
             </p>
         </div>
@@ -96,7 +96,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../../selectHomeNews.mvc">通知公告</a>
+                        <a href="./selectHomeNews">通知公告</a>
 
                     </span>
             </p>
@@ -111,7 +111,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../../selectRules.mvc">规章制度</a>
+                        <a href="./selectRules">规章制度</a>
                     </span>
             </p>
         </div>
@@ -125,7 +125,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../../selectGoverment.mvc">党建廉政</a>
+                        <a href="./selectGoverment">党建廉政</a>
                     </span>
             </p>
         </div>
@@ -139,7 +139,7 @@
                     </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                        <a href="../..//selectServer.mvc">服务指南</a>
+                        <a href="./selectServer">服务指南</a>
                     </span>
             </p>
         </div>
@@ -153,7 +153,7 @@
             </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                <a href="../../selectAchievements.mvc">成果展示</a>
+                <a href="./selectAchievements">成果展示</a>
             </span>
             </p>
         </div>
@@ -167,7 +167,7 @@
             </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                <a href="../../selectImage.mvc">图片管理</a>
+                <a href="./selectImage">图片管理</a>
             </span>
             </p>
         </div>
@@ -180,7 +180,7 @@
             </span>
                 &nbsp; &nbsp;
                 <span class="s-title">
-                <a href="../../selectFriendLink.mvc">友情链接</a>
+                <a href="./selectFriendLink">友情链接</a>
             </span>
             </p>
         </div>
@@ -194,7 +194,7 @@
                 </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                    <a href="../../selectApprovalNews.mvc">新闻审核</a>
+                    <a href="./selectApprovalNews">新闻审核</a>
                 </span>
                 </p>
             </div>
@@ -213,7 +213,7 @@
                 </div>
             </div>
             <div class="new-body">
-                <form action="../../insertLink.mvc" id="linkForm" method="POST" role="form">
+                <form action="./insertLink" id="linkForm" method="POST" role="form">
                     <div class="form-group">
                         <label for="title">标题</label>
                         <input type="text" class="form-control" id="title" placeholder="请输入标题" name="linkName">
@@ -228,7 +228,7 @@
                 </div>
             </div>
             <div class="show-news">
-                <form class="navbar-form" action="../../selectWithName.mvc">
+                <form class="navbar-form" action="./selectWithName">
                     <div class="form-group">
                         <input type="text" class="form-control" name="name" placeholder="请输入链接名">
                     </div>
@@ -261,13 +261,13 @@
     </div>
 </div>
 </body>
-<script src="../public/js/public.js"></script>
+<script src="<%=basePath%>backdemo/public/js/public.js"></script>
 </html>
 <script type="text/javascript">
     function addLink() {
         var form = new FormData(document.getElementById("linkForm"));
         $.ajax({
-            url: "<%=basePath%>insertLink.mvc",
+            url: "<%=basePath%>insertLink",
             type: "post",
             data: form,
             processData: false,
@@ -284,7 +284,7 @@
 
     function deleteLink(id) {
         $.ajax({
-            url: "<%=basePath%>deleteLink.mvc?linkId="+id,
+            url: "<%=basePath%>deleteLink?linkId="+id,
             type: "post",
             success: function (data) {
                 alert("链接删除成功!");

@@ -24,7 +24,7 @@
         }
     </style>
 </head>
-<body>
+<body background="images/2.jpg">
     <div class="error">
 
     </div>

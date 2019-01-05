@@ -83,52 +83,61 @@
         </div>
     </nav>
 
-    <!-- 内容展示区域 -->
-    <div class="container-fluid">
-        <div class="rules-content">
-            <!-- 右侧消息展示区域 -->
-            <div class="content-right">
-                <div class="content-news">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <p class="title">
+    <div class="html-container">
+        <div class="html-body">
+            <!-- 内容展示区域 -->
+            <div class="container-fluid">
+                <div class="rules-content">
+                    <!-- 右侧消息展示区域 -->
+                    <div class="content-right">
+                        <div class="content-news">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <p class="title">
                                 <span>
                                     <svg class="icon" aria-hidden="true">
                                         <use xlink:href="#icon-tongzhi"></use>
                                     </svg>&nbsp;
                                 </span>
-                                &nbsp;&nbsp;
-                                <span class="title-header">联系方式</span>
-                            </p>
-                            <ol class="breadcrumb">
-                                <li><a href="../Home/Home.jsp">网站首页</a></li>
-                                <li><a href="#">联系我们</a></li>
-                             
-                            </ol>
-                        </div>
-                        <div class="panel-body">
-                            <!-- 正文内容 -->
-                            <div class="item-work">                             
-                                <div class="work-content">
-                                    ${content.content}
+                                        &nbsp;&nbsp;
+                                        <span class="title-header">联系方式</span>
+                                    </p>
+                                    <ol class="breadcrumb">
+                                        <li><a href="../Home/Home.jsp">网站首页</a></li>
+                                        <li><a href="#">联系我们</a></li>
+
+                                    </ol>
+                                </div>
+                                <div class="panel-body">
+                                    <!-- 正文内容 -->
+                                    <div class="item-work">
+                                        <div class="work-content">
+                                            ${content.content}
+                                        </div>
+                                    </div>
+                                    <!-- 一个内容 -->
+
                                 </div>
                             </div>
-                            <!-- 一个内容 -->
-                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- 页脚 -->
-    <div class="container-fluid">
-        <div class="footer">
-            <span>Copyright 2010-2011 Hqc.pzhu.edu.cn Inc.All Rights Reserved.攀枝花学院后勤管理处 版权所有 </span>
-            <span>地址：四川省攀枝花市东区机场路10号 电话：0812-85583114 邮编：617000 技术支持：苏俊</span>
+        <div class="html-footer">
+            <!-- 页脚 -->
+            <div class="container-fluid">
+                <div class="footer">
+                    <span>Copyright 2010-2011 Hqc.pzhu.edu.cn Inc.All Rights Reserved.攀枝花学院后勤管理处 版权所有 </span>
+                    <span>地址：四川省攀枝花市东区机场路10号 电话：0812-85583114 邮编：617000 技术支持：苏俊</span>
+                </div>
+            </div>
         </div>
     </div>
+
+
+
+
     <!-- 回到顶部 -->
     <div class="back-header">
         <svg class="icon-icon-test " aria-hidden="true">

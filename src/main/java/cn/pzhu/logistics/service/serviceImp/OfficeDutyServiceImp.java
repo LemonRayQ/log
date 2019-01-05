@@ -7,6 +7,7 @@ import cn.pzhu.logistics.pojo.OfficeDuty;
 import cn.pzhu.logistics.service.OfficeDutyService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  * @author Impassive_y
  * @date 2018/11/12 13:58
  */
+@Service(value = "officeDutyService")
 public class OfficeDutyServiceImp implements OfficeDutyService {
 
     @Resource(name = "sqlSessionFactory")

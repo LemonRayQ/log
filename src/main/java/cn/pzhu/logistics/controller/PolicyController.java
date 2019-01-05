@@ -1,12 +1,13 @@
 package cn.pzhu.logistics.controller;
 
+import cn.pzhu.logistics.constant.ClassifyConstant;
 import cn.pzhu.logistics.pojo.Level;
-import cn.pzhu.logistics.pojo.News;
 import cn.pzhu.logistics.pojo.Policy;
 import cn.pzhu.logistics.service.PolicyService;
 import cn.pzhu.logistics.util.FileUtil;
 import cn.pzhu.logistics.util.Utils;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -26,54 +27,54 @@ public class PolicyController {
     private PolicyService policyService;
 
     @RequestMapping(value = "selectPolicyLevel")
-    public String selectPolicyLevel(HttpSession session){
+    public String selectPolicyLevel(Model model, HttpSession session) {
         List<Level> levels = policyService.selectLevel();
-        session.setAttribute("level",levels);
+        model.addAttribute("level", levels);
         List<Policy> policies = policyService.selectPolicy(0);
         int count = policyService.selectCountPolicy();
-        StringBuffer bar = Utils.createBar("../../selectNextPageNews.mvc", count, 5, 1,6);
-        session.setAttribute("bar",bar);
-        session.setAttribute("policy",policies);
-        return "redirect:backdemo/policy/policy.jsp";
+        StringBuffer bar = Utils.createBar("./selectNextPageNews", count, 5, 1, 6);
+        model.addAttribute("bar", bar);
+        session.setAttribute("policy", policies);
+        return "backdemo/policy/policy";
     }
 
     @RequestMapping(value = "insertPolicy")
-    public String insert(@RequestParam("paths") MultipartFile path, Policy policy, HttpSession session) {
+    public String insert(@RequestParam("paths") MultipartFile path, Policy policy, Model model, HttpSession session) {
         if (policyService.insertPolicy(policy, path)) {
             List<Policy> policies = policyService.selectPolicy(0);
             int count = policyService.selectCountPolicy();
-            StringBuffer bar = Utils.createBar("../../selectNextPageNews.mvc", count, 5, 1,6);
-            session.setAttribute("bar",bar);
-            session.setAttribute("policy",policies);
-            session.setAttribute("insertFlag", "yes");
+            StringBuffer bar = Utils.createBar("./selectNextPageNews", count, 5, 1, ClassifyConstant.POLICY_DOCUMENT);
+            model.addAttribute("bar", bar);
+            session.setAttribute("policy", policies);
+            model.addAttribute("insertFlag", "yes");
         } else {
-            session.setAttribute("insertFlag", "no");
+            model.addAttribute("insertFlag", "no");
         }
-        return "redirect:backdemo/news/news.jsp";
+        return "backdemo/news/news";
     }
 
     @RequestMapping(value = "updatePolicy")
-    public String updatePolicy(HttpServletRequest request){
+    public String updatePolicy(HttpServletRequest request) {
         String policy_id = request.getParameter("policy_id");
         @SuppressWarnings("unchecked")
         List<Policy> policy = (List<Policy>) request.getSession().getAttribute("policy");
-        request.getSession().setAttribute("singlePolicy",policy.get(Integer.parseInt(policy_id)));
-        return "redirect:backdemo/policy/policy.jsp";
+        request.getSession().setAttribute("singlePolicy", policy.get(Integer.parseInt(policy_id)));
+        return "backdemo/policy/policy";
     }
 
     @RequestMapping(value = "updatePolicyInfo")
     @ResponseBody
-    public String updatePolicyInfo(HttpSession session,Policy policy,@RequestParam("paths") MultipartFile path){
-        if(!path.isEmpty()){
-            Policy singleNews = (Policy)session.getAttribute("singlePolicy");
+    public String updatePolicyInfo(HttpSession session, Policy policy, @RequestParam("paths") MultipartFile path) {
+        if (!path.isEmpty()) {
+            Policy singleNews = (Policy) session.getAttribute("singlePolicy");
             FileUtil.deleteFile(singleNews.getPath());
         }
         policy.setContent(policy.getContent().trim());
-        boolean b = policyService.updatePolicy(policy,path);
-        if(b){
+        boolean b = policyService.updatePolicy(policy, path);
+        if (b) {
             List<Policy> policies = policyService.selectPolicy(0);
-            session.setAttribute("policy",policies);
-            session.setAttribute("singlePolicy",null);
+            session.setAttribute("policy", policies);
+            session.setAttribute("singlePolicy", null);
             return "success";
         }
         return "wrong";
@@ -82,25 +83,25 @@ public class PolicyController {
 
     @RequestMapping(value = "deletePolicy")
     @ResponseBody
-    public String deletePolicy(HttpServletRequest request){
+    public String deletePolicy(HttpServletRequest request, Model model) {
         boolean flag = true;
         String policy_id = request.getParameter("policy_id");
         String policy_index = request.getParameter("index");
         @SuppressWarnings("unchecked")
         List<Policy> policy = (List<Policy>) request.getSession().getAttribute("policy");
         Policy policy1 = policy.get(Integer.parseInt(policy_index));
-        System.out.println(policy1.getPath());
-        if(!("".equals(policy1.getPath())) && policy1.getPath() != null){
+
+        if (!("".equals(policy1.getPath())) && policy1.getPath() != null) {
             flag = FileUtil.deleteFile(policy1.getPath());
         }
-        if(flag){
+        if (flag) {
             boolean b = policyService.deletePolicy(Integer.parseInt(policy_id));
-            if(b){
+            if (b) {
                 List<Policy> policies = policyService.selectPolicy(0);
                 int count = policyService.selectCountPolicy();
-                StringBuffer bar = Utils.createBar("../../selectNextPageNews.mvc", count, 5, 1,6);
-                request.getSession().setAttribute("bar",bar);
-                request.getSession().setAttribute("policy",policies);
+                StringBuffer bar = Utils.createBar("./selectNextPageNews", count, 5, 1, ClassifyConstant.POLICY_DOCUMENT);
+                model.addAttribute("bar", bar);
+                request.getSession().setAttribute("policy", policies);
                 return "success";
             }
         }
@@ -108,18 +109,21 @@ public class PolicyController {
     }
 
     @RequestMapping(value = "selectPolicy")
-    public String selectPolicy(HttpSession session){
+    public String selectPolicy(Model model, HttpSession session) {
         List<Policy> policies = policyService.selectPolicy();
-        session.setAttribute("policies",policies);
+        session.setAttribute("policies", policies);
         Map<String, BigDecimal> map = policyService.selectPolicyCount();
-        System.out.println("count:"+map.get("count1"));
-        StringBuffer countryBar = Utils.createBar("../selectNextPage.mvc", map.get("count1").intValue(), 5, 1, 9);
-        StringBuffer provinceBar = Utils.createBar("../selectNextPage.mvc", map.get("count2").intValue(), 5, 1, 9);
-        StringBuffer collegeBar = Utils.createBar("../selectNextPage.mvc", map.get("count3").intValue(), 5, 1, 9);
-        session.setAttribute("countryBar",countryBar);
-        session.setAttribute("provinceBar",provinceBar);
-        session.setAttribute("collegeBar",collegeBar);
-        return "redirect:rule/rule.jsp";
+        if (map != null) {
+            StringBuffer countryBar = Utils.createBar("./selectNextPage", map.get("count1").intValue(), 5, 1, ClassifyConstant.RULE_REGULATION);
+            StringBuffer provinceBar = Utils.createBar("./selectNextPage", map.get("count2").intValue(), 5, 1, ClassifyConstant.RULE_REGULATION);
+            StringBuffer collegeBar = Utils.createBar("./selectNextPage", map.get("count3").intValue(), 5, 1, ClassifyConstant.RULE_REGULATION);
+
+            model.addAttribute("countryBar", countryBar);
+            model.addAttribute("provinceBar", provinceBar);
+            model.addAttribute("collegeBar", collegeBar);
+        }
+
+        return "rule/rule";
     }
 
 

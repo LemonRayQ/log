@@ -5,6 +5,7 @@ import cn.pzhu.logistics.pojo.Link;
 import cn.pzhu.logistics.service.LinkService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
  * @author Impassive_y
  * @date 2018/11/9 10:38
  */
+@Service(value = "linkService")
 public class LinkServiceImp implements LinkService {
 
     @Resource(name = "sqlSessionFactory")

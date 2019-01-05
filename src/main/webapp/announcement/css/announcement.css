@@ -2,9 +2,6 @@
 .rules-content {
     width: 100%;
     height: 100%;
-    margin: 10px 20px;
-    display: flex;
-    justify-content: space-between;
 }
 
 /* 左侧联系展示区域 */
@@ -17,7 +14,7 @@
 }
 
 .rules-content .content-left {
-    width: 20%;
+    width: 100%;
     height: 100%;
     border: 1px solid white;
     box-shadow: white 1px 1px 2px;
@@ -60,10 +57,11 @@
 
 /* 右侧区域的内容 */
 .rules-content .content-right {
-    width: 80%;
+    width: 100%;
     height: 100%;
     border: 1px solid white;
     box-shadow: white 1px 1px 2px;
+    margin-bottom: 50px;
 }
 
 
@@ -121,6 +119,7 @@
     margin-bottom: 15px;
     border-bottom: 1px solid #e5e5e5;
     box-shadow: #e5e5e5 0px 0px 3px;
+    flex-wrap: wrap;
 }
 .an-content .an-ul li p{
     margin: 0px;
@@ -130,4 +129,28 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space:nowrap;
+}
+
+.row{
+  margin: 0px 0px;
+}
+
+@media screen and (max-width:750px){
+    .an-content .an-ul li .title{
+        width: 90%;
+    }
+    .content-right .panel-heading p .title-header{
+        font-size: 20px;
+    }
+    .connectMe{
+        display: none;
+    }
+    .rules-content .content-left .contact-ul li{
+        padding-left: 10px;
+    }
+}
+@media screen and (max-width:970px){
+    .connectMe{
+        display: none;
+    }
 }

@@ -2,11 +2,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@page isELIgnored="false" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + path + "/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <script type="text/javascript">
     function logout() {
-        window.location.href = "../../logout.mvc";
+        window.location.href = "./logout";
     }
 </script>
 <head>
@@ -14,19 +19,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>图片管理</title>
-    <link rel="icon" href="../../title.ico" type="image/x-icon"/>
+    <link rel="icon" href="<%=basePath%>title.ico" type="image/x-icon"/>
     <!-- 引入bootstrap -->
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=basePath%>backdemo/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="<%=basePath%>backdemo/imgshow/css/main.css">
 
     <!-- 引入图标样式 -->
-    <script type="text/javascript" src="../public/icon/font_9rqbtihwbsm/iconfont.js"></script>
+    <script type="text/javascript" src="<%=basePath%>backdemo/public/icon/font_9rqbtihwbsm/iconfont.js"></script>
 
     <!-- 引入公告样式 -->
-    <link rel="stylesheet" href="../public/css/public.css">
+    <link rel="stylesheet" href="<%=basePath%>backdemo/public/css/public.css">
     <!-- 引入自定义样式 -->
-    <link rel="stylesheet" href="./css/img.css">
+    <link rel="stylesheet" href="<%=basePath%>backdemo/imgshow/css/img.css">
 </head>
 
 <body>
@@ -47,8 +52,8 @@
             </span>
                 </p>
                 <ul class="sidebar-ul">
-                    <li><a href="../../selectIntroduce.mvc">基建概况</a></li>
-                    <li><a href="../../selectOfficeDuty.mvc">科室主要职责</a></li>
+                    <li><a href="./selectIntroduce">基建概况</a></li>
+                    <li><a href="./selectOfficeDuty">科室主要职责</a></li>
                 </ul>
             </div>
             <!-- 政策文件 -->
@@ -61,7 +66,7 @@
             </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                <a href="../../selectPolicyLevel.mvc">政策文件</a>
+                <a href="./selectPolicyLevel">政策文件</a>
             </span>
                 </p>
             </div>
@@ -76,7 +81,7 @@
                     </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                        <a href="../../selectWork.mvc">工作动态</a>
+                        <a href="./selectWork">工作动态</a>
                     </span>
                 </p>
             </div>
@@ -91,7 +96,7 @@
                     </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                        <a href="../../selectHomeNews.mvc">通知公告</a>
+                        <a href="./selectHomeNews">通知公告</a>
 
                     </span>
                 </p>
@@ -106,7 +111,7 @@
                     </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                        <a href="../../selectRules.mvc">规章制度</a>
+                        <a href="./selectRules">规章制度</a>
                     </span>
                 </p>
             </div>
@@ -120,7 +125,7 @@
                     </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                        <a href="../../selectGoverment.mvc">党建廉政</a>
+                        <a href="./selectGoverment">党建廉政</a>
                     </span>
                 </p>
             </div>
@@ -134,7 +139,7 @@
                     </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                        <a href="../..//selectServer.mvc">服务指南</a>
+                        <a href="./selectServer">服务指南</a>
                     </span>
                 </p>
             </div>
@@ -148,7 +153,7 @@
             </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                <a href="../../selectAchievements.mvc">成果展示</a>
+                <a href="./selectAchievements">成果展示</a>
             </span>
                 </p>
             </div>
@@ -162,7 +167,7 @@
             </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                <a href="../../selectImage.mvc">图片管理</a>
+                <a href="./selectImage">图片管理</a>
             </span>
                 </p>
             </div>
@@ -175,7 +180,7 @@
             </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                <a href="../../selectFriendLink.mvc">友情链接</a>
+                <a href="./selectFriendLink">友情链接</a>
             </span>
                 </p>
             </div>
@@ -189,7 +194,7 @@
                 </span>
                         &nbsp; &nbsp;
                         <span class="s-title">
-                    <a href="../../selectApprovalNews.mvc">新闻审核</a>
+                    <a href="./selectApprovalNews">新闻审核</a>
                 </span>
                     </p>
                 </div>
@@ -220,7 +225,7 @@
                                         <div class="img">
                                             <img src="/logistics/${image.path}" alt="哦豁,出bug了！">
                                         </div>
-                                        <a href="../../deleteImage.mvc?shuffling_id=${image.shufflingId}" class="btn btn-danger">删除</a>
+                                        <a href="./deleteImage?shuffling_id=${image.shufflingId}" class="btn btn-danger">删除</a>
                                     </div>
                                 </td>
                             </tr>
@@ -254,7 +259,7 @@
                             <div class="col-md-9">
                                 <!-- <h3>Demo:</h3> -->
                                 <div class="img-container">
-                                    <img id="image" src="./images/picture.jpg" alt="Picture">
+                                    <img id="image" src="<%=basePath%>backdemo/imgshow/images/picture.jpg" alt="Picture">
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -444,20 +449,18 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
                 <!-- 页脚 -->
             </div>
         </div>
     </div>
 </body>
-<script type="text/javascript" src="../public/js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="../public/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/public/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/public/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://fengyuanchen.github.io/js/common.js"></script>
 <script type="text/javascript" src="https://unpkg.com/cropperjs/dist/cropper.js"></script>
-<script type="text/javascript" src="js/jquery-cropper.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="../public/js/public.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/imgshow/js/jquery-cropper.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/imgshow/js/main.js"></script>
+<script type="text/javascript" src="<%=basePath%>backdemo/public/js/public.js"></script>
 </html>

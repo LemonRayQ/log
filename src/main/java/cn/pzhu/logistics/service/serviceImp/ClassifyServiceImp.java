@@ -5,10 +5,12 @@ import cn.pzhu.logistics.pojo.Classify;
 import cn.pzhu.logistics.service.ClassifyService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Service(value = "classifyService")
 public class ClassifyServiceImp implements ClassifyService {
 
     @Resource(name = "sqlSessionFactory")

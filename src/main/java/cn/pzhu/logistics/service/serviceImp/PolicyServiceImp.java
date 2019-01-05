@@ -1,6 +1,5 @@
 package cn.pzhu.logistics.service.serviceImp;
 
-import cn.pzhu.logistics.dao.NewsManagerDao;
 import cn.pzhu.logistics.dao.PolicyDao;
 import cn.pzhu.logistics.pojo.Level;
 import cn.pzhu.logistics.pojo.Policy;
@@ -9,6 +8,7 @@ import cn.pzhu.logistics.util.FileUtil;
 import cn.pzhu.logistics.util.Utils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
+@Service(value = "policyService")
 public class PolicyServiceImp implements PolicyService {
 
     @Resource(name = "sqlSessionFactory")
@@ -39,7 +40,7 @@ public class PolicyServiceImp implements PolicyService {
             String string = "file/rule/";
             try {
                 String fileName = FileUtil.uplodeFile(file, string);
-                System.out.println(fileName);
+
                 policy.setPath(fileName);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -48,7 +49,7 @@ public class PolicyServiceImp implements PolicyService {
         }
         policy.setTime(Utils.getCurrentTimeStamp());
         boolean b = mapper.insertPolicy(policy);
-        System.out.println(policy.toString());
+
         session.close();
         return true;
     }

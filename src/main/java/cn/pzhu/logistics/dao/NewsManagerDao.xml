@@ -51,7 +51,7 @@
         or (c.classify_id = ${id} and News.dept_id = (select dept_id from Department d where d.dept_name like '%${conditions}%')) and News.class_id = c.classify_id
     </select>
     <select id="selectNewsById" parameterType="Integer" resultMap="news">
-        select * from News,Department where Department.dept_id=News.dept_id and news_id=#{newId};
+        select * from News,Department where Department.dept_id = News.dept_id and news_id = ${newId};
     </select>
     <update id="updateReadNum">
         update News set readNum=readNum+1 where news_id=#{newId};

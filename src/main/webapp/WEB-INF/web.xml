@@ -20,6 +20,10 @@
         <filter-name>HomeFilter</filter-name>
         <filter-class>cn.pzhu.logistics.filter.HomeFilter</filter-class>
     </filter>
+    <filter>
+        <filter-name>timeFilter</filter-name>
+        <filter-class>cn.pzhu.logistics.filter.LoginTimeFilter</filter-class>
+    </filter>
     <filter-mapping>
         <filter-name>HomeFilter</filter-name>
         <url-pattern>/achievement/*</url-pattern>
@@ -52,6 +56,10 @@
         <filter-name>EncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>timeFilter</filter-name>
+        <url-pattern>/Home/admin.jsp</url-pattern>
+    </filter-mapping>
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
@@ -66,10 +74,12 @@
             <param-value>classpath:applicationContext.xml</param-value>
         </init-param>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>springMvc</servlet-name>
-        <url-pattern>*.mvc</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

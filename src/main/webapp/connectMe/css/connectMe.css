@@ -15,6 +15,7 @@
     fill: currentColor;
     overflow: hidden;
 }
+
 .rules-content .content-left {
     width: 20%;
     height: 100%;
@@ -23,7 +24,8 @@
     padding: 10px;
     margin-right: 5px;
 }
-.rules-content .content-left .panel-heading{
+
+.rules-content .content-left .panel-heading {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -31,24 +33,28 @@
     padding: 5px 10px;
     font-size: 19px;
 }
+
 .rules-content .content-left .contact-ul {
     list-style: none;
     padding: 0px;
     margin: 0px;
     width: 100%;
 }
-.rules-content .content-left .contact-ul li{
+
+.rules-content .content-left .contact-ul li {
     width: 100%;
     font-size: 17px;
     height: 40px;
     font-weight: 600;
 }
-.contact .panel-default{
+
+.contact .panel-default {
     margin: 0px;
     margin-bottom: 20px;
 
 }
-.contact .panel-default>.panel-heading{
+
+.contact .panel-default>.panel-heading {
     background-color: rgb(221, 243, 254);
 }
 
@@ -59,13 +65,13 @@
     height: 100%;
     border: 1px solid white;
     box-shadow: white 1px 1px 2px;
-    display:flex;
+    display: flex;
     justify-content: center;
 }
 
 
 /* 右侧面板的头部标题 */
-.content-right .panel-heading{
+.content-right .panel-heading {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -73,65 +79,97 @@
     align-items: center;
     padding: 15px 10px;
 }
-.content-right .panel-heading p,.breadcrumb{
+
+.content-right .panel-heading p,
+.breadcrumb {
     margin: 0px;
     display: flex;
     align-items: center;
 }
-.content-right .panel-heading p .title-header{
+
+.content-right .panel-heading p .title-header {
     font-size: 25px;
     font-weight: 700;
 }
+
+/* .content-news{
+    width: 100%;
+} */
 .content-news .panel {
     margin-bottom: 0px;
 }
 
 /* 右侧正文内容 */
 
-.content-news .panel-body{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: flex-start; 
+.content-news .panel-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
-.content-news .panel-body .item-work{
+
+.content-news .panel-body .item-work {
     width: 100%;
     height: 100%;
     border-bottom: 1px solid #e5e5e5;
     box-shadow: #e5e5e5 0px 0px 2px;
-    padding: 20px;
-} 
-.content-news .panel-body .item-work .page-header{
+}
+
+.content-news .panel-body .item-work .page-header {
     display: flex;
     justify-content: space-between;
     margin: 0px;
     padding: 0px;
 }
-.content-news .panel-body .item-work .page-header .title{
+
+.content-news .panel-body .item-work .page-header .title {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.content-news .panel-body .item-work .page-header .title h3{
+
+.content-news .panel-body .item-work .page-header .title h3 {
     margin: 0px;
 }
-.content-news .panel-body .item-work .page-header .title a{
-    margin-top:2px;
+
+.content-news .panel-body .item-work .page-header .title a {
+    margin-top: 2px;
 }
 
-.item-work .work-content{
-    padding-top: 20px;
+.item-work .work-content {
     font-size: 18px;
     text-indent: 2em;
     line-height: 30px;
     letter-spacing: 2px;
     white-space: normal;
-    overflow: hidden;
     text-overflow: ellipsis;
+    overflow-x: scroll;
+}
+.content-news .panel-body .item-work .table{
+    margin-bottom: 0px;
+    width: 1000px;
 }
 
 /* 正文的分页按钮 */
-.content-right .content-page{
-  display: flex;
-  justify-content: center;
+.content-right .content-page {
+    display: flex;
+    justify-content: center;
+}
+
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th {
+    vertical-align: middle;
+}
+
+@media screen and (max-width:970px){
+    .rules-content .content-right{
+        width: 95%;
+    }
+    .content-news .panel-body .item-work{
+        padding: 0px;
+    }
 }

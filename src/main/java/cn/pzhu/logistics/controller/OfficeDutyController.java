@@ -5,6 +5,7 @@ import cn.pzhu.logistics.pojo.OfficeDuty;
 import cn.pzhu.logistics.service.DepartService;
 import cn.pzhu.logistics.service.OfficeDutyService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -32,21 +33,29 @@ public class OfficeDutyController {
     }
 
 
-    @RequestMapping(value = "OfficeDuty.mvc")
-    public String OfficeDuty(HttpSession session){
+    @RequestMapping(value = "OfficeDuty")
+    public String OfficeDuty(Model model, HttpSession session){
+
+        //查询所有的部门
+
         List<Department> departments = departService.select();
         session.setAttribute("depatment",departments);
-        return "redirect:duty/duty.jsp";
+
+        //默认查询IP为1的科室的职责
+        List<OfficeDuty> duties = officeDutyService.selectSingleOffice(1);
+        model.addAttribute("duties",duties);
+
+        return "duty/duty";
     }
 
-    @RequestMapping(value = "singleOfiice.mvc")
-    public String singleOfiice(HttpSession session,Integer deptId){
+    @RequestMapping(value = "singleOfiice")
+    public String singleOfiice(Integer deptId,Model model){
         List<OfficeDuty> duties = officeDutyService.selectSingleOffice(deptId);
-        session.setAttribute("duties",duties);
-        return "redirect:duty/duty.jsp";
+        model.addAttribute("duties",duties);
+        return "duty/duty";
     }
 
-    @RequestMapping(value = "insertDepartment.mvc")
+    @RequestMapping(value = "insertDepartment")
     public String insertOffice(HttpServletRequest request){
         String name = request.getParameter("newName");
         boolean b = departService.insertDepartment(name);
@@ -54,10 +63,10 @@ public class OfficeDutyController {
             List<Department> departments = departService.select();
             request.getSession().setAttribute("depart",departments);
         }
-        return "redirect:backdemo/publicpages/officeDuty.jsp";
+        return "backdemo/publicpages/officeDuty";
     }
 
-    @RequestMapping(value = "changeDepart.mvc")
+    @RequestMapping(value = "changeDepart")
     @ResponseBody
     public String changeDepart(HttpServletRequest request,String changeName) {
         int deptId = Integer.parseInt(request.getParameter("optionsRadios"));

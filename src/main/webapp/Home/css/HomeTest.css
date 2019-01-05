@@ -6,7 +6,7 @@
 }
 
 .news-content .news {
-    width: 60%;
+    width: 100%;
     height: 100%;
 }
 
@@ -30,22 +30,18 @@
     line-height: 35px;
 }
 
-.news-content .news .new-item li .title {
-    width: 80%;
+.news-content .news .new-item .title{
+    width:70%;
     display: flex;
     justify-content: flex-start;
 }
 
-.news-content .news .new-item li .title a {
+.news-content .news .new-item li a {
     display: inline-block;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 70%;
-}
-
-.news-content .news .new-item li .data {
-    width: 20%;
+    flex: 1;
 }
 
 .news-content .barcode {
@@ -53,14 +49,13 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    width: 40%;
+    width: 100%;
     height: 100%;
-    margin-top: 20px;
+    margin-top: 20%;
 }
 
 .news-content .barcode .img-item {
-    width: 150px;
-    height: 150px;
+    width: 35%;
     margin-left: 30px;
     margin-top: 30px;
 
@@ -73,4 +68,35 @@
 .news-content .barcode .img-item .text {
     font-size: 18px;
     text-align: center;
+}
+
+.row {
+    width: 100%;
+}
+
+/* 响应式布局代码 */
+
+@media screen and (max-width:750px) {
+    .lunbotu {
+        height: 100%;
+    }
+
+    .swiper-container {
+        height: 100%;
+    }
+
+    .container {
+        width: 100%;
+    }
+    .news-content .news .new-item li{
+        font-size: 14px;
+    }
+}
+@media screen and (max-width:1170px){
+    .lunbotu{
+        height:100%;
+    }
+    .swiper-container{
+        height: 100%;
+    }
 }

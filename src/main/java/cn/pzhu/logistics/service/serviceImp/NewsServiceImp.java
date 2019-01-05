@@ -8,12 +8,14 @@ import cn.pzhu.logistics.util.FileUtil;
 import cn.pzhu.logistics.util.Utils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
 import javax.annotation.Resource;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+@Service(value = "newsService")
 public class NewsServiceImp implements NewsService {
 
     @Resource(name = "sqlSessionFactory")

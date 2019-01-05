@@ -160,7 +160,7 @@
                 case 'getCroppedCanvas':
                     if (result) {
                         $.ajax({
-                            url: "../../insertImage.mvc",
+                            url: "./insertImage.mvc",
                             type: "post",
                             data: {base64Data: result.toDataURL(uploadedImageType)},
                             success: function (data) {

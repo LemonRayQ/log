@@ -6,6 +6,7 @@ import cn.pzhu.logistics.service.ShufflingService;
 import cn.pzhu.logistics.util.FileUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+@Service(value = "shufflingService")
 public class ShufflingServiceImp implements ShufflingService {
     @Resource(name = "sqlSessionFactory")
     SqlSessionFactory sqlSessionFactory;

@@ -5,10 +5,12 @@ import cn.pzhu.logistics.pojo.Department;
 import cn.pzhu.logistics.service.DepartService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
+@Service(value = "departService")
 public class DepartServiceImp implements DepartService {
 
     @Resource(name = "sqlSessionFactory")

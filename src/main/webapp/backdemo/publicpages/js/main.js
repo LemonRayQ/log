@@ -156,7 +156,7 @@
                     if (result) {
                         //上传base64
                         $.ajax({
-                            url: "../../uploadBase64.mvc",
+                            url: "./uploadBase64.mvc",
                             type: "post",
                             data: {base64Data: result.toDataURL(uploadedImageType)},
                             success: function (data) {

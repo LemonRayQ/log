@@ -6,6 +6,7 @@ import cn.pzhu.logistics.service.AchievementService;
 import cn.pzhu.logistics.util.FileUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
  * @author Impassive_y
  * @date 2018/11/11 19:23
  */
+@Service(value = "achievementService")
 public class AchievementServiceImp implements AchievementService {
 
     @Resource(name = "sqlSessionFactory")
