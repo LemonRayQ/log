@@ -31,23 +31,23 @@ public class WebLogAspect {
 
         assert attributes != null;
         HttpServletRequest request = attributes.getRequest();
-        logger.info("###############请求开始##################");
-        logger.info("URL:" + request.getRequestURL().toString());
-        logger.info("HTTP_METHOD:" + request.getMethod());
-        logger.info("IP:" + request.getRemoteAddr());
+        logger.debug("###############请求开始##################");
+        logger.debug("URL : " + request.getRequestURL().toString());
+        logger.debug("HTTP_METHOD :"  + request.getMethod());
+        logger.debug("IP : " + request.getRemoteAddr());
 
         Enumeration<String> enumeration = request.getHeaderNames();
         while (enumeration.hasMoreElements()){
             String name = enumeration.nextElement();
-            logger.info("name:{"+name+"},value:{"+request.getParameter(name)+"}");
+            logger.debug("name:{"+name+"},value:{"+request.getParameter(name)+"}");
         }
 
     }
 
     @AfterReturning(returning = "ret",pointcut = "weblog()")
     public void doAfterReturning(Object ret){
-        logger.info("response:" + ret);
-        logger.info("###############请求结束##################");
+        logger.debug("response:" + ret);
+        logger.debug("###############请求结束##################");
     }
 
 
