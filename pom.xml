@@ -182,6 +182,20 @@
             <version>8.0.13</version>
         </dependency>
 
+        <!-- 配置切面 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.9.2</version>
+        </dependency>
+        <!-- 配置日志 -->
+        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>jboss-logging</artifactId>
+            <version>3.3.2.Final</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
