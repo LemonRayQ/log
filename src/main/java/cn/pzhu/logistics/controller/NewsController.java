@@ -25,6 +25,9 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * 新闻信息
+ */
 @Controller
 public class NewsController {
 
@@ -181,22 +184,6 @@ public class NewsController {
         StringBuffer bar = Utils.createBar("./selectNextPage", count, 9, 1, classId);
         model.addAttribute("bar", bar);
         return "announcement/announcement";
-    }
-
-    @RequestMapping(value = "selectWorkNews")
-    public String selectWorkNews(HttpServletRequest request, Model model) {
-        Integer classId = Integer.parseInt(request.getParameter("classId"));
-        List<News> news = newsService.selectNews(0, classId);
-        List<Department> departments = departService.select();
-        model.addAttribute("depart", departments);
-        model.addAttribute("noticeNews", news);
-        model.addAttribute("deptId", null);
-        int count = newsService.selectNewsCount(classId);
-
-        StringBuffer bar = Utils.createBar("./selectNextPage", count, 5, 1, classId);
-        model.addAttribute("bar", bar);
-        return "work/work";
-
     }
 
     @RequestMapping(value = "selectOfficeNews")

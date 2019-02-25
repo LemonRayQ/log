@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
+ * 后台科室信息
  * @author Impassive_y
  * @date 2018/11/10 12:36
  */

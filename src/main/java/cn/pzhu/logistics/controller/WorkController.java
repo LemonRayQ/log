@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
+ * 工作动态
  * @author Impassive_y
  * @date 2018/11/10 12:24
  */
@@ -43,6 +44,23 @@ public class WorkController {
         return "backdemo/publicpages/work";
     }
 
+    @RequestMapping(value = "selectWorkNews")
+    public String selectWorkNews(HttpServletRequest request, Model model) {
+        Integer classId = Integer.parseInt(request.getParameter("classId"));
+        List<News> news = newsService.selectNews(0, classId);
+        List<Department> departments = departService.select();
+
+        request.getSession().setAttribute("depart", departments);
+        model.addAttribute("noticeNews", news);
+        model.addAttribute("deptId", null);
+
+        int count = newsService.selectNewsCount(classId);
+
+        StringBuffer bar = Utils.createBar("./selectNextPage", count, 5, 1, classId);
+        model.addAttribute("bar", bar);
+        return "work/work";
+
+    }
 
     @RequestMapping(value = "selectWorkWithDept")
     @ResponseBody

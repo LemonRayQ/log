@@ -13,6 +13,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+
+/**
+ * 后台科室职责管理
+ */
 @Controller
 public class OfficeDutyController {
 

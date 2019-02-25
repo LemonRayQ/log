@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
+ * 友情链接
  * @author Impassive_y
- * @return
  * @date 2018/11/8 21:19
  */
 @Controller
