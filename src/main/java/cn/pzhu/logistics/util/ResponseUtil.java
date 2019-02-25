@@ -13,7 +13,7 @@ public class ResponseUtil {
 
     private static String getBrowser(HttpServletRequest request) {
         String UserAgent = request.getHeader("USER-AGENT").toLowerCase();
-        System.out.println("userAgent:"+request.getHeader("USER-AGENT").toLowerCase());
+
         if (UserAgent.contains("trident"))
             return "IE";
         if (UserAgent.contains("firefox")){
@@ -21,14 +21,21 @@ public class ResponseUtil {
         }
         if (UserAgent.contains("safari"))
             return "SF";
-        return null;
+        return "";
     }
 
     public static ResponseEntity<byte[]> buildResponseEntity(File file,HttpServletRequest request) throws IOException {
         byte[] body = null;
         InputStream is = new FileInputStream(file);
         body = new byte[is.available()];
-        int read = is.read(body);
+
+        int read = 0;
+        try {
+            read = is.read(body);
+        }finally {
+            is.close();
+        }
+
         HttpHeaders headers = new HttpHeaders();
         switch (getBrowser(request)) {
             case "IE":

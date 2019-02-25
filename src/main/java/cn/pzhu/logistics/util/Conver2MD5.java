@@ -1,5 +1,6 @@
 package cn.pzhu.logistics.util;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -9,10 +10,10 @@ public final class Conver2MD5 {
         String reStr = null;
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(str.getBytes());
+            md.update(str.getBytes("GBK"));
             byte ss[] = md.digest();
             reStr = bytes2String(ss);
-        } catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return reStr;
@@ -22,10 +23,10 @@ public final class Conver2MD5 {
         String reStr = null;
         try {
             MessageDigest sha = MessageDigest.getInstance("SHA");
-            sha.update(str.getBytes());
+            sha.update(str.getBytes("GBK"));
             byte ss[] = sha.digest();
             reStr = bytes2String(ss);
-        } catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         return reStr;

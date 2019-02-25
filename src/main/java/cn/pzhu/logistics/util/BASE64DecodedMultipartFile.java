@@ -14,7 +14,7 @@ public class BASE64DecodedMultipartFile implements MultipartFile {
     private final String header;
 
     public BASE64DecodedMultipartFile(byte[] imgContent, String header) {
-        this.imgContent = imgContent;
+        this.imgContent = imgContent.clone();
         this.header = header.split(";")[0];
     }
 
@@ -48,7 +48,7 @@ public class BASE64DecodedMultipartFile implements MultipartFile {
 
     @Override
     public byte[] getBytes() throws IOException {
-        return imgContent;
+        return imgContent.clone();
     }
 
     @Override
@@ -59,7 +59,13 @@ public class BASE64DecodedMultipartFile implements MultipartFile {
 
     @Override
     public void transferTo(File dest) throws IOException, IllegalStateException {
-        new FileOutputStream(dest).write(imgContent);
+        FileOutputStream fileOutputStream = new FileOutputStream(dest);
+        try {
+            fileOutputStream.write(imgContent);
+        }finally {
+            fileOutputStream.close();
+        }
+
     }
 
 }

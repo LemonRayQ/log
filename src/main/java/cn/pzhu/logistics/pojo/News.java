@@ -65,12 +65,12 @@ public class News implements Serializable {
     }
 
 
-    public java.sql.Timestamp getTime() {
-        return time;
+    public Timestamp getTime() {
+        return (Timestamp) time.clone();
     }
 
     public void setTime(java.sql.Timestamp time) {
-        this.time = time;
+        this.time = (Timestamp) time.clone();
     }
 
 

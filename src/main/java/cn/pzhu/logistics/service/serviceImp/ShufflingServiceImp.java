@@ -41,7 +41,7 @@ public class ShufflingServiceImp implements ShufflingService {
         String name = shuffling.getPath();
         String path = "/logistics/" + name;
         File file = new File(path);
-        file.delete();
+        boolean delete = file.delete();
         if (mapper.deleteById(id)) {
             flag = true;
         } else {

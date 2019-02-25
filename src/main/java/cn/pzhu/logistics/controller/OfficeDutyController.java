@@ -38,7 +38,7 @@ public class OfficeDutyController {
 
 
     @RequestMapping(value = "OfficeDuty")
-    public String OfficeDuty(Model model, HttpSession session){
+    public String officeDuty(Model model, HttpSession session){
 
         //查询所有的部门
 

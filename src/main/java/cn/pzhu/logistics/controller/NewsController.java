@@ -395,6 +395,7 @@ public class NewsController {
                 MultipartFile multipartFile = request.getFile(fileName);
                 /*将multipartFile转化成File，以便执行reduceImage()方法，将空文件当作中转站，用完后在92行调用方法删除*/
                 File file = File.createTempFile("temp", null);
+
                 multipartFile.transferTo(file);
                 /*压缩图片*/
                 if (multipartFile != null) {
@@ -407,6 +408,7 @@ public class NewsController {
                     FileUtil.uplodeFile(multipartFile, path, picName);
                     value = "image/news/" + picName;
                 }
+
                 file.deleteOnExit();
             }
         }
