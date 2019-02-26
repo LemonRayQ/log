@@ -27,18 +27,19 @@
     <link rel="stylesheet" href="<%=basePath%>connect/css/introduce.css">
 
     <style>
-        .table>tbody>tr>td,
-        .table>tbody>tr>th,
-        .table>tfoot>tr>td,
-        .table>tfoot>tr>th,
-        .table>thead>tr>td,
-        .table>thead>tr>th {
+        .table > tbody > tr > td,
+        .table > tbody > tr > th,
+        .table > tfoot > tr > td,
+        .table > tfoot > tr > th,
+        .table > thead > tr > td,
+        .table > thead > tr > th {
             vertical-align: middle;
         }
     </style>
 </head>
 
 <body>
+<div class="bodys">
     <!-- 头部图片和文字 -->
     <jsp:include page="../publicPage/title.jsp"/>
 
@@ -74,7 +75,7 @@
                                     <div class="item-work">
                                         <div class="work-content">
                                             <table class="table table-bordered">
-                                                <thead >
+                                                <thead>
                                                 <tr>
                                                     <th>序号</th>
                                                     <th>科室</th>
@@ -113,7 +114,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>5</td>
-                                                    <td>李雪梅 </td>
+                                                    <td>李雪梅</td>
                                                     <td rowspan="3">3507760</td>
                                                     <td></td>
                                                 </tr>
@@ -255,9 +256,9 @@
                                                 </tr>
                                                 <tr>
                                                     <td>27</td>
-                                                    <td rowspan="2">膳食科 </td>
+                                                    <td rowspan="2">膳食科</td>
                                                     <td>童守俊</td>
-                                                    <td rowspan="2">3370671 </td>
+                                                    <td rowspan="2">3370671</td>
                                                     <td>科长</td>
                                                 </tr>
                                                 <tr>
@@ -336,7 +337,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>39</td>
-                                                    <td rowspan="2">北苑物业部                                                </td>
+                                                    <td rowspan="2">北苑物业部</td>
                                                     <td>熊怀林
                                                     </td>
                                                     <td rowspan="2">3371108
@@ -362,12 +363,12 @@
                 </div>
             </div>
         </div>
-        <div class="html-footer">
-            <jsp:include page="../publicPage/foot.jsp"/>
-        </div>
+
     </div>
-
-
+</div>
+<div class="html-footer">
+    <jsp:include page="../publicPage/foot.jsp"/>
+</div>
 
 
 </body>

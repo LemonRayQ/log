@@ -1,12 +1,19 @@
 /* 初始化样式 */
 body {
-    margin: 0;
-    padding: 0;
     background: #e5e5e5;
     overflow-x: hidden;
     padding-bottom: 20px;
 
 }
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+
 
 /* ================华丽的分割线====================== */
 
@@ -89,7 +96,7 @@ body {
 .container-fluid {
     display: flex;
     justify-content: space-around;
-    padding:0px;
+    padding: 0px;
 }
 
 #bs-example-navbar-collapse-1 {
@@ -102,13 +109,13 @@ body {
     margin-left: 100px;
 }
 
-.navbar-default .navbar-nav>.active>a,
-.navbar-default .navbar-nav>.active>a:focus,
-.navbar-default .navbar-nav>.active>a:hover {
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .active > a:hover {
     font-weight: 700;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .navbar-nav > li > a {
     color: white;
     font-weight: 700;
 }
@@ -119,7 +126,7 @@ body {
 
 /* 响应式式导航栏样式 */
 
-@media screen and (max-width:750px) {
+@media screen and (max-width: 750px) {
 
     /* 头部 */
     .header .header-logo {
@@ -136,12 +143,12 @@ body {
         width: 25%;
     }
 
-    .header .header-logo .logo-left .logo-text {      
+    .header .header-logo .logo-left .logo-text {
         height: 100%;
     }
 
     .header .header-logo .logo-left .logo-text img {
-      width: 100%;
+        width: 100%;
     }
 
     .header .header-logo .logo2 {
@@ -149,7 +156,7 @@ body {
     }
 
     .header .header-logo .logo2 img {
-		width:80%;
+        width: 80%;
     }
 
     /* 导航栏部分 */
@@ -168,15 +175,15 @@ body {
         justify-content: flex-start;
     }
 
-    .nav>li {
+    .nav > li {
         white-space: nowrap;
     }
 
-    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: white;
     }
 
-    .navbar-default .navbar-nav>li>a {
+    .navbar-default .navbar-nav > li > a {
         font-size: 15px;
     }
 
@@ -184,35 +191,41 @@ body {
     .footer {
         font-size: 14px;
     }
-    .connectMe{
+
+    .connectMe {
         display: none;
     }
 }
 
 /* 中等屏幕 */
-@media screen and (max-width:970px){
-    .header .header-logo .logo-left{
+@media screen and (max-width: 970px) {
+    .header .header-logo .logo-left {
         width: 60%;
     }
-    .header .header-logo .logo2{
+
+    .header .header-logo .logo2 {
         width: 40%;
     }
-    .header .header-logo .logo2 img{
+
+    .header .header-logo .logo2 img {
         width: 80%;
     }
 }
 
-@media screen and (max-width:1170px){
-    .header .header-logo .logo2 img{
+@media screen and (max-width: 1170px) {
+    .header .header-logo .logo2 img {
         width: 70%;
     }
-    .an-content .an-ul li{
+
+    .an-content .an-ul li {
         padding: 5px 5px;
     }
-    .panel-body{
+
+    .panel-body {
         padding: 0px;
     }
 }
+
 /* ================华丽的分割线====================== */
 
 /* 页脚 */
@@ -220,6 +233,7 @@ body {
     position: relative;
     bottom: 0px;
     width: 100%;
+    height: 100%;
     border-top: 1px solid black;
     display: flex;
     flex-direction: column;
@@ -238,23 +252,33 @@ body {
 }
 
 
-.html-container{
+.html-container {
     position: relative;
     width: 100%;
-    min-height: 700px;
+    height: auto;
     display: flex;
     flex-direction: column;
-    justify-content:space-between;
+    justify-content: space-between;
 }
-.html-body{
-    width: 100%;
-}
-.html-footer{
-    width: 100%;
-    height: 10%;
-}
-/* ================华丽的分割线====================== */
 
+.html-body {
+    width: 100%;
+}
+
+.bodys {
+    height: auto;
+    width: 100%;
+    min-height: 100%;
+}
+
+.html-footer {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+}
+
+/* ================华丽的分割线====================== */
 
 
 /* 回到顶部 */
@@ -288,7 +312,8 @@ body {
 .content-news {
     width: 100%;
 }
-.row{
+
+.row {
     width: 100%;
     margin-left: 0px;
     margin-right: 0px;

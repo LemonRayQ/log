@@ -29,7 +29,8 @@
 </head>
 
 <body>
-<jsp:include page="../publicPage/title.jsp"/>
+<div class="bodys">
+    <jsp:include page="../publicPage/title.jsp"/>
 
     <div class="html-container">
         <div class="html-body">
@@ -44,8 +45,10 @@
                                     <div class="serach">
                                         <form class="form-inline" action="./conditionsOfQueryNews">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="conditions" placeholder="搜索公告标题" value="${show}">
-                                                <input type="hidden" value="${noticeNews[0].classify.classifyId}" name="classify_id">
+                                                <input type="text" class="form-control" name="conditions"
+                                                       placeholder="搜索公告标题" value="${show}">
+                                                <input type="hidden" value="${noticeNews[0].classify.classifyId}"
+                                                       name="classify_id">
                                             </div>
                                             <button type="submit" class="btn btn-primary">搜索</button>
                                         </form>
@@ -64,7 +67,9 @@
                                         <div class="panel-body">
                                             <ul class="contact-ul">
                                                 <c:forEach items="${depart}" var="depart">
-                                                    <li><a href="./selectOfficeNews?deptId=${depart.deptId}&classId=${classify.classifyId}">${depart.name}</a></li>
+                                                    <li>
+                                                        <a href="./selectOfficeNews?deptId=${depart.deptId}&classId=${classify.classifyId}">${depart.name}</a>
+                                                    </li>
                                                 </c:forEach>
                                             </ul>
                                         </div>
@@ -100,10 +105,12 @@
                                                     <c:forEach items="${noticeNews}" var="News">
                                                         <li>
                                                             <p class="title">
-                                                                【${News.department.name}】 <a href="./notice?newsId=${News.newsId}">${News.title}</a>
+                                                                【${News.department.name}】 <a
+                                                                    href="./notice?newsId=${News.newsId}">${News.title}</a>
                                                             </p>
                                                             <p>
-                                                                <fmt:formatDate value="${News.time}" pattern="yyyy-MM-dd"/>
+                                                                <fmt:formatDate value="${News.time}"
+                                                                                pattern="yyyy-MM-dd"/>
                                                             </p>
                                                         </li>
                                                     </c:forEach>
@@ -130,11 +137,11 @@
                 </div>
             </div>
         </div>
-        <div class="html-footer">
-            <jsp:include page="../publicPage/foot.jsp"/>
-        </div>
     </div>
-
+</div>
+<div class="html-footer">
+    <jsp:include page="../publicPage/foot.jsp"/>
+</div>
 </body>
 <script src="<%=basePath%>public/js/public.js"></script>
 </html>

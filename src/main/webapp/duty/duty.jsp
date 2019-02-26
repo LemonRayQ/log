@@ -29,69 +29,72 @@
 </head>
 
 <body>
-<jsp:include page="../publicPage/title.jsp"/>
-
-<!-- 内容展示区域 -->
-<div class="container-fluid">
-    <div class="rules-content">
-        <div class="row">
-            <div class="col-md-3">
-                <!-- 左侧区域联系 -->
-                <div class="content-left">
-                    <div class="contact">
-                        <!-- 右侧的一个面板区域 -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
+<div class="bodys">
+    <jsp:include page="../publicPage/title.jsp"/>
+    <!-- 内容展示区域 -->
+    <div class="container-fluid">
+        <div class="rules-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- 左侧区域联系 -->
+                    <div class="content-left">
+                        <div class="contact">
+                            <!-- 右侧的一个面板区域 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
                             <span>
                                 <svg class="icon" aria-hidden="true">
                                     <use xlink:href="#icon-tongzhi"></use>
                                 </svg>&nbsp;
                             </span>
-                                &nbsp;&nbsp;
-                                <span>科室名称</span>
+                                    &nbsp;&nbsp;
+                                    <span>科室名称</span>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="contact-ul">
+                                        <c:forEach items="${depatment}" var="depatment">
+                                            <li>
+                                                <a href="./singleOfiice?deptId=${depatment.deptId}">${depatment.name}</a>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="panel-body">
-                                <ul class="contact-ul">
-                                    <c:forEach items="${depatment}" var="depatment">
-                                        <li><a href="./singleOfiice?deptId=${depatment.deptId}">${depatment.name}</a></li>
-                                    </c:forEach>
-                                </ul>
-                            </div>
+                            <jsp:include page="../publicPage/connect.jsp"/>
                         </div>
-                        <jsp:include page="../publicPage/connect.jsp"/>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-9">
-                <!-- 右侧消息展示区域 -->
-                <div class="content-right">
-                    <div class="content-news">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <p class="title">
+                <div class="col-md-9">
+                    <!-- 右侧消息展示区域 -->
+                    <div class="content-right">
+                        <div class="content-news">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <p class="title">
                                 <span>
                                     <svg class="icon" aria-hidden="true">
                                         <use xlink:href="#icon-tongzhi"></use>
                                     </svg>&nbsp;
                                 </span>
-                                    &nbsp;&nbsp;
-                                    <span class="title-header">科室主要职责</span>
-                                </p>
-                                <ol class="breadcrumb">
-                                    <li><a href="./Home">网站首页</a></li>
-                                    <li><a href="./OfficeDuty">科室职责</a></li>
-                                </ol>
-                            </div>
-                            <div class="panel-body">
-                                <!-- 正文内容 -->
-                                <div class="item-work">
-                                    <div class="page-header">
-                                        <div class="title">
-                                            <h3>${duties[0].department.name}</h3>
+                                        &nbsp;&nbsp;
+                                        <span class="title-header">科室主要职责</span>
+                                    </p>
+                                    <ol class="breadcrumb">
+                                        <li><a href="./Home">网站首页</a></li>
+                                        <li><a href="./OfficeDuty">科室职责</a></li>
+                                    </ol>
+                                </div>
+                                <div class="panel-body">
+                                    <!-- 正文内容 -->
+                                    <div class="item-work">
+                                        <div class="page-header">
+                                            <div class="title">
+                                                <h3>${duties[0].department.name}</h3>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="work-content">
-                                        ${duties[0].duty}
+                                        <div class="work-content">
+                                            ${duties[0].duty}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -99,14 +102,14 @@
                     </div>
                 </div>
             </div>
+
+
         </div>
-
-
     </div>
 </div>
-
-<jsp:include page="../publicPage/foot.jsp"/>
-
+<div class="html-footer">
+    <jsp:include page="../publicPage/foot.jsp"/>
+</div>
 </body>
 <script src="<%=basePath%>public/js/public.js"></script>
 <script src="<%=basePath%>duty/js/duty.js"></script>

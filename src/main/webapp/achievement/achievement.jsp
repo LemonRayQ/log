@@ -30,58 +30,62 @@
 
 <body>
 <!-- 预览图片 -->
-<div class="preview">
-    <div class="content">
-        <div class="bigimg">
-            <img src="" alt="">
-        </div>
-        <div class="text">
-        </div>
-    </div>
-    <div class="left">
-            <span class="glyphicon glyphicon-menu-left
-              " aria-hidden="true"></span>
-    </div>
-    <div class="right">
-            <span class="glyphicon glyphicon-menu-right
-              " aria-hidden="true"></span>
-    </div>
-    <div class="close">
-            <span class="glyphicon glyphicon-remove
-                " aria-hidden="true"></span>
-    </div>
-</div>
-<jsp:include page="../publicPage/title.jsp"/>
-
-<div class="html-container">
-    <div class="html-body">
-        <!-- 成果展示区 -->
-        <div class="container-fluid">
-            <div class="achievement">
-                <div class="a-imgs">
-                    <c:forEach items="${results}" var="result">
-                        <div class="thumbnail" index="0">
-                            <div class="img">
-                                <img src="/logistics/${result.path}" data-preview-src="" data-preview-group="1"/>
-                            </div>
-                            <div class="caption">
-                                <p>${result.content}</p>
-                            </div>
-                        </div>
-                    </c:forEach>
-                </div>
-                <div class="a-pages">
-                    <nav aria-label="Page navigation">
-                        <ul class="pagination">
-                            ${bar}
-                        </ul>
-                    </nav>
-                </div>
+<div class="bodys">
+    <div class="preview">
+        <div class="content">
+            <div class="bigimg">
+                <img src="" alt="">
+            </div>
+            <div class="text">
             </div>
         </div>
-    <div class="html-footer">
-        <jsp:include page="../publicPage/foot.jsp"/>
+        <div class="left">
+            <span class="glyphicon glyphicon-menu-left
+              " aria-hidden="true"></span>
+        </div>
+        <div class="right">
+            <span class="glyphicon glyphicon-menu-right
+              " aria-hidden="true"></span>
+        </div>
+        <div class="close">
+            <span class="glyphicon glyphicon-remove
+                " aria-hidden="true"></span>
+        </div>
     </div>
+    <jsp:include page="../publicPage/title.jsp"/>
+
+    <div class="html-container">
+        <div class="html-body">
+            <!-- 成果展示区 -->
+            <div class="container-fluid">
+                <div class="achievement">
+                    <div class="a-imgs">
+                        <c:forEach items="${results}" var="result">
+                            <div class="thumbnail" index="0">
+                                <div class="img">
+                                    <img src="/logistics/${result.path}" data-preview-src="" data-preview-group="1"/>
+                                </div>
+                                <div class="caption">
+                                    <p>${result.content}</p>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+                    <div class="a-pages">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                ${bar}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="html-footer">
+    <jsp:include page="../publicPage/foot.jsp"/>
 </div>
 
 </body>

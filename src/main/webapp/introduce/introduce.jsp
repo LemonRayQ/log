@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="<%=basePath%>introduce/css/introduce.css">
 
     <style>
-        table,tr,td{
+        table, tr, td {
             text-align: center;
             border: 1px solid black;
         }
@@ -35,9 +35,9 @@
 </head>
 
 <body>
+<div class="bodys">
     <!-- 头部图片和文字 -->
     <jsp:include page="../publicPage/title.jsp"/>
-
     <div class="html-container">
         <div class="html-body">
             <!-- 内容展示区域 -->
@@ -82,11 +82,12 @@
                 </div>
             </div>
         </div>
-        <div class="html-footer">
-            <jsp:include page="../publicPage/foot.jsp"/>
-        </div>
-    </div>
 
+    </div>
+</div>
+<div class="html-footer">
+    <jsp:include page="../publicPage/foot.jsp"/>
+</div>
 </body>
 <script src="<%=basePath%>public/js/public.js"></script>
 </html>

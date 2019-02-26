@@ -27,9 +27,8 @@
 </head>
 
 <body>
-<jsp:include page="../publicPage/title.jsp"/>
-
-
+<div class="bodys">
+    <jsp:include page="../publicPage/title.jsp"/>
     <!-- 内容展示区域 -->
     <div class="container-fluid">
         <div class="rules-content">
@@ -63,11 +62,13 @@
                                 <div class="panel-body">
                                     <!-- 正文内容 -->
                                     <div class="rule-container">
-                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel-group" id="accordion" role="tablist"
+                                             aria-multiselectable="true">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading" role="tab" id="headingOne">
                                                     <h4 class="panel-title">
-                                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                           href="#collapseOne"
                                                            aria-expanded="true" aria-controls="collapseOne">
                                                             国家政策文件
                                                         </a>
@@ -84,7 +85,8 @@
                                                                                 ${policy.title}
                                                                         </a>
                                                                         <span>
-                                                                    <fmt:formatDate value="${policy.time}" pattern="yyyy-MM-dd"/>
+                                                                    <fmt:formatDate value="${policy.time}"
+                                                                                    pattern="yyyy-MM-dd"/>
                                                                 </span>
                                                                     </li>
                                                                 </c:if>
@@ -104,8 +106,10 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading" role="tab" id="headingTwo">
                                                     <h4 class="panel-title">
-                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                                           href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                                           data-parent="#accordion"
+                                                           href="#collapseTwo" aria-expanded="false"
+                                                           aria-controls="collapseTwo">
                                                             省级政策文件
                                                         </a>
                                                     </h4>
@@ -120,7 +124,8 @@
                                                                         <a href="./downloadFile?path=${policy.path}">
                                                                                 ${policy.title}
                                                                         </a>
-                                                                        <span> <fmt:formatDate value="${policy.time}" pattern="yyyy-MM-dd"/></span>
+                                                                        <span> <fmt:formatDate value="${policy.time}"
+                                                                                               pattern="yyyy-MM-dd"/></span>
                                                                     </li>
                                                                 </c:if>
                                                             </c:forEach>
@@ -139,8 +144,10 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading" role="tab" id="headingThree">
                                                     <h4 class="panel-title">
-                                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
-                                                           href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                                           data-parent="#accordion"
+                                                           href="#collapseThree" aria-expanded="false"
+                                                           aria-controls="collapseThree">
                                                             校级政策文件
                                                         </a>
                                                     </h4>
@@ -155,7 +162,8 @@
                                                                         <a href="./downloadFile?path=${policy.path}">
                                                                                 ${policy.title}
                                                                         </a>
-                                                                        <span> <fmt:formatDate value="${policy.time}" pattern="yyyy-MM-dd"/></span>
+                                                                        <span> <fmt:formatDate value="${policy.time}"
+                                                                                               pattern="yyyy-MM-dd"/></span>
                                                                     </li>
                                                                 </c:if>
                                                             </c:forEach>
@@ -181,9 +189,10 @@
             </div>
         </div>
     </div>
-
-<jsp:include page="../publicPage/foot.jsp"/>
-
+</div>
+<div class="html-footer">
+    <jsp:include page="../publicPage/foot.jsp"/>
+</div>
 </body>
 <script type="text/javascript" src="<%=basePath%>public/js/public.js"></script>
 <script type="text/javascript" src="<%=basePath%>rule/js/rules.js"></script>
