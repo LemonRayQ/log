@@ -2,9 +2,8 @@
 <%@ page isELIgnored="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+    String path = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + request.getContextPath();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,32 +13,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>成果展示</title>
-    <link rel="icon" href="<%=basePath%>title.ico" type="image/x-icon"/>
+    <link rel="icon" href="<%=path%>/title.ico" type="image/x-icon"/>
     <!-- 引入bootstrap -->
-    <link rel="stylesheet" href="<%=basePath%>backdemo/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=path%>/backdemo/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css">
-    <link rel="stylesheet" href="<%=basePath%>backdemo/publicpages/css/main.css">
+    <link rel="stylesheet" href="<%=path%>/backdemo/publicpages/css/main.css">
 
     <!-- 引入图标样式 -->
-    <script src="<%=basePath%>backdemo/public/icon/font_9rqbtihwbsm/iconfont.js"></script>
+    <script src="<%=path%>/backdemo/public/icon/font_9rqbtihwbsm/iconfont.js"></script>
     <!-- 引入公告样式 -->
-    <link rel="stylesheet" href="<%=basePath%>backdemo/public/css/public.css">
+    <link rel="stylesheet" href="<%=path%>/backdemo/public/css/public.css">
     <!-- 引入自定义样式 -->
-    <link rel="stylesheet" href="<%=basePath%>backdemo/publicpages/css/achievements.css">
+    <link rel="stylesheet" href="<%=path%>/backdemo/publicpages/css/achievements.css">
 
     <%-- 引入文本编辑框 --%>
-    <link href="<%=basePath%>backdemo/news/editor/assets/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/font-awesome-ie7.min.css"/>
-    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/jquery-ui-1.10.3.custom.min.css"/>
+    <link href="<%=path%>/backdemo/news/editor/assets/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="<%=path%>/backdemo/news/editor/assets/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="<%=path%>/backdemo/news/editor/assets/css/font-awesome-ie7.min.css"/>
+    <link rel="stylesheet" href="<%=path%>/backdemo/news/editor/assets/css/jquery-ui-1.10.3.custom.min.css"/>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
-    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/ace.min.css"/>
-    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/ace-rtl.min.css"/>
-    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/ace-skins.min.css"/>
-    <link rel="stylesheet" href="<%=basePath%>backdemo/news/editor/assets/css/ace-ie.min.css"/>
-    <script src="<%=basePath%>backdemo/news/editor/assets/js/ace-extra.min.js"></script>
+    <link rel="stylesheet" href="<%=path%>/backdemo/news/editor/assets/css/ace.min.css"/>
+    <link rel="stylesheet" href="<%=path%>/backdemo/news/editor/assets/css/ace-rtl.min.css"/>
+    <link rel="stylesheet" href="<%=path%>/backdemo/news/editor/assets/css/ace-skins.min.css"/>
+    <link rel="stylesheet" href="<%=path%>/backdemo/news/editor/assets/css/ace-ie.min.css"/>
+    <script src="<%=path%>/backdemo/news/editor/assets/js/ace-extra.min.js"></script>
 
     <script>
         function logout() {
@@ -236,7 +235,7 @@
                         <div class="col-md-9">
                             <!-- <h3>Demo:</h3> -->
                             <div class="img-container">
-                                <img id="image" src="<%=basePath%>backdemo/publicpages/images/picture.jpg" alt="Picture">
+                                <img id="image" src="<%=path%>/backdemo/publicpages/images/picture.jpg" alt="Picture">
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -493,7 +492,7 @@
             $("#content").val($("#editor1").html());
             var form = new FormData(document.getElementById("form"));
             $.ajax({
-                url: "<%=basePath%>insertAchievement",
+                url: "<%=path%>/insertAchievement",
                 type: "post",
                 data: form,
                 processData: false,
@@ -516,7 +515,7 @@
     
     function deleteAche(id) {
         $.ajax({
-            url: "<%=basePath%>deleteAchievement?index="+id,
+            url: "<%=path%>/deleteAchievement?index="+id,
             type: "post",
             success: function (data) {
                 if(data === "false"){
@@ -537,30 +536,30 @@
 </html>
 
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='<%=basePath%>backdemo/news/editor/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+    window.jQuery || document.write("<script src='<%=path%>/backdemo/news/editor/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
 </script>
 
 <script type="text/javascript">
-    window.jQuery || document.write("<script src='<%=basePath%>backdemo/news/editor/assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
+    window.jQuery || document.write("<script src='<%=path%>/backdemo/news/editor/assets/js/jquery-1.10.2.min.js'>" + "<" + "/script>");
 </script>
 <script type="text/javascript">
-    if ("ontouchend" in document) document.write("<script src='<%=basePath%>backdemo/news/editor/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+    if ("ontouchend" in document) document.write("<script src='<%=path%>/backdemo/news/editor/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
 </script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/typeahead-bs2.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/jquery.ui.touch-punch.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/markdown/markdown.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/markdown/bootstrap-markdown.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/jquery.hotkeys.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/bootstrap-wysiwyg.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/bootbox.min.js"></script>
-<script src="<%=basePath%>backdemo/news/editor/assets/js/ace-elements.min.js" type="text/javascript" charset="UTF-8"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/news/editor/assets/js/ace.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>backdemo/publicpages/js/editor.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/typeahead-bs2.min.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/markdown/markdown.min.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/markdown/bootstrap-markdown.min.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/jquery.hotkeys.min.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/bootstrap-wysiwyg.min.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/bootbox.min.js"></script>
+<script src="<%=path%>/backdemo/news/editor/assets/js/ace-elements.min.js" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/ace.min.js"></script>
+<script type="text/javascript" src="<%=path%>/backdemo/publicpages/js/editor.js"></script>
 
-<script src="https://fengyuanchen.github.io/js/common.js"></script>
-<script src="https://unpkg.com/cropperjs/dist/cropper.js"></script>
-<script src="<%=basePath%>backdemo/publicpages/js/jquery-cropper.js"></script>
-<script src="<%=basePath%>backdemo/publicpages/js/main.js"></script>
-<script src="<%=basePath%>backdemo/public/js/public.js" type="text/javascript"></script>
+<script src="<%=path%>/backdemo/publicpages/js/http_fengyuanchen.github.io_js_common.js"></script>
+<script src="<%=path%>/backdemo/publicpages/js/http_unpkg.com_cropperjs_dist_cropper.js"></script>
+<script src="<%=path%>/backdemo/publicpages/js/jquery-cropper.js"></script>
+<script src="<%=path%>/backdemo/publicpages/js/main.js"></script>
+<script src="<%=path%>/backdemo/public/js/public.js" type="text/javascript"></script>

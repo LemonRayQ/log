@@ -16,7 +16,7 @@ public class HomeFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest)servletRequest;
         HttpServletResponse response = (HttpServletResponse)servletResponse;
         if(request.getSession().getAttribute("homeFlag") != null){
-            System.out.println("HomeFilter");
+
             filterChain.doFilter(request,response);
         }else{
             request.getSession().setAttribute("homeFlag","yes");
