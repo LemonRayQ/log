@@ -6,7 +6,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.jboss.logging.Logger;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
 @Aspect
-@Component
 public class WebLogAspect {
 
     private static Logger logger = Logger.getLogger(WebLogAspect.class);
@@ -47,6 +45,7 @@ public class WebLogAspect {
     @AfterReturning(returning = "ret",pointcut = "weblog()")
     public void doAfterReturning(Object ret){
         logger.debug("response:" + ret);
+
         logger.debug("###############请求结束##################");
     }
 

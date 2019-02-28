@@ -16,10 +16,10 @@ public class FileUtil {
 
     /**
      * 上传文件到指定位置
-     * @param multipartFile
-     * @param path
-     * @return
-     * @throws IOException
+     * @param multipartFile 多媒体文件
+     * @param path 文件路径
+     * @return 文件名称
+     * @throws IOException 输入输出异常
      */
     public static String uplodeFile(MultipartFile multipartFile,String path) throws IOException {
 
@@ -31,10 +31,10 @@ public class FileUtil {
 
     /**
      * 上传文件到指定位置，文件名为指定名字
-     * @param multipartFile
-     * @param path
-     * @param name
-     * @throws IOException
+     * @param multipartFile 多媒体文件
+     * @param path 文件路径
+     * @param name 文件名称
+     * @throws IOException 输入输出异常
      */
     public static void uplodeFile(MultipartFile multipartFile, String path, String name) throws IOException {
         multipartFile.transferTo(new File("/logistics/" + path + name));
@@ -46,8 +46,8 @@ public class FileUtil {
 
     /**
      * 设置文件名，使用UUID产生随机字符串，并截取前5个，再与文件初始名通过_拼接
-     * @param file
-     * @return
+     * @param file 文件
+     * @return 文件名称
      */
     public static String setFileName(MultipartFile file) {
         return UUID.randomUUID().toString().substring(0, 5) + "_" + file.getOriginalFilename();
@@ -61,8 +61,8 @@ public class FileUtil {
 
     /**
      * 缩放图片(图片宽度设置为500px)
-     * @param file
-     * @throws IOException
+     * @param file 文件
+     * @throws IOException 输入输出异常
      */
     public static void reduceImage(File file) throws IOException {
         /*缩放比例*/
@@ -94,21 +94,21 @@ public class FileUtil {
 
     /**
      * 获得图片宽度，单位为px
-     * @param file
-     * @return
-     * @throws IOException
+     * @param file 文件
+     * @return 文件宽度
+     * @throws IOException 输入输出异常
      */
-    public static int getImageWidth(File file) throws IOException {
+    private static int getImageWidth(File file) throws IOException {
         return ImageIO.read(file).getWidth();
     }
 
     /**
      * 获得文件高度，单位px
-     * @param file
-     * @return
-     * @throws IOException
+     * @param file 文件
+     * @return 文件高度
+     * @throws IOException 输入输出异常
      */
-    public static int getImageHeight(File file) throws IOException {
+    private static int getImageHeight(File file) throws IOException {
         return ImageIO.read(file).getHeight();
     }
 
@@ -128,6 +128,7 @@ public class FileUtil {
 
 
     public static MultipartFile base64ToMultipart(String base64) {
+
         try {
             String[] baseStrs = base64.split(",");
 

@@ -459,7 +459,7 @@
                                 <h4 class="media-heading">${result.title}</h4>
                                     ${result.content}
                             </div>
-                            <a href="javascript:deleteAche(${id.index})" class="btn btn-danger">删除</a>
+                            <a href="javascript:deleteAche(${result.id})" class="btn btn-danger">删除</a>
                         </div>
 
 
@@ -487,8 +487,9 @@
         } else if ($("#editor1").html() === "") {
             alert("内容不能为空!");
         } else if($("#path").val() === ""){
-            alert("请先点击上传按钮！");
-        } else{
+            alert("请先上传图片!");
+        }
+        else {
             $("#content").val($("#editor1").html());
             var form = new FormData(document.getElementById("form"));
             $.ajax({
@@ -512,19 +513,14 @@
             });
         }
     }
-    
+
     function deleteAche(id) {
         $.ajax({
-            url: "<%=path%>/deleteAchievement?index="+id,
+            url: "<%=path%>/deleteAchievement?index=" + id,
             type: "post",
             success: function (data) {
-                if(data === "false"){
-                    alert("删除失敗!");
-                }else{
-                    alert("删除成功!");
-                    window.location.reload();
-                }
 
+                window.location.reload();
             },
             error: function (e) {
                 alert("删除失败！");
@@ -550,11 +546,13 @@
 <script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
 <script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/jquery.ui.touch-punch.min.js"></script>
 <script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/markdown/markdown.min.js"></script>
-<script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/markdown/bootstrap-markdown.min.js"></script>
+<script type="text/javascript"
+        src="<%=path%>/backdemo/news/editor/assets/js/markdown/bootstrap-markdown.min.js"></script>
 <script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/jquery.hotkeys.min.js"></script>
 <script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/bootstrap-wysiwyg.min.js"></script>
 <script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/bootbox.min.js"></script>
-<script src="<%=path%>/backdemo/news/editor/assets/js/ace-elements.min.js" type="text/javascript" charset="UTF-8"></script>
+<script src="<%=path%>/backdemo/news/editor/assets/js/ace-elements.min.js" type="text/javascript"
+        charset="UTF-8"></script>
 <script type="text/javascript" src="<%=path%>/backdemo/news/editor/assets/js/ace.min.js"></script>
 <script type="text/javascript" src="<%=path%>/backdemo/publicpages/js/editor.js"></script>
 

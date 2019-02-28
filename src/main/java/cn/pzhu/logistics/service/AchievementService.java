@@ -13,4 +13,6 @@ public interface AchievementService {
     boolean insertResult(Result result);
     int selectResultCount();
     boolean deleteAchievement(int id);
+
+    Result selectResultWithId(int id);
 }

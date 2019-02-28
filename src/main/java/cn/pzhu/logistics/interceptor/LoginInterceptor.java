@@ -16,15 +16,20 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        String viewName = modelAndView.getViewName();
 
-        if(viewName.contains("backdemo")){
-            Object loginFlag = request.getSession().getAttribute("loginFlag");
-            Object superFlag = request.getSession().getAttribute("superFlag");
-            if(loginFlag == null && superFlag == null){
-                response.sendRedirect("Home/admin.jsp");
+        if(modelAndView != null){
+            String viewName = modelAndView.getViewName();
+
+            if(viewName.contains("backdemo")){
+                Object loginFlag = request.getSession().getAttribute("loginFlag");
+                Object superFlag = request.getSession().getAttribute("superFlag");
+                if(loginFlag == null && superFlag == null){
+                    response.sendRedirect("Home/admin.jsp");
+                }
             }
         }
+
+
 
     }
 

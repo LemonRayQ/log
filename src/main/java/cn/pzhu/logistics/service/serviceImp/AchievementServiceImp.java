@@ -22,10 +22,10 @@ public class AchievementServiceImp implements AchievementService {
     private SqlSessionFactory sqlSessionFactory;
 
     @Override
-    public List<Result> selectResult(int start,int num) {
+    public List<Result> selectResult(int start, int num) {
         SqlSession session = sqlSessionFactory.openSession();
         AchievementDao mapper = session.getMapper(AchievementDao.class);
-        List<Result> results = mapper.selectResult(start,num);
+        List<Result> results = mapper.selectResult(start, num);
         session.close();
         return results;
     }
@@ -38,7 +38,7 @@ public class AchievementServiceImp implements AchievementService {
         boolean b = false;
         try {
             b = mapper.insertResult(result);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             FileUtil.deleteFile(result.getPath());
         }
@@ -64,7 +64,15 @@ public class AchievementServiceImp implements AchievementService {
         return b;
     }
 
-    public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
-        this.sqlSessionFactory = sqlSessionFactory;
+    @Override
+    public Result selectResultWithId(int id) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        AchievementDao mapper = sqlSession.getMapper(AchievementDao.class);
+        Result result = mapper.selectResultWithId(id);
+
+        sqlSession.close();
+        return result;
     }
+
+
 }

@@ -14,4 +14,6 @@ public interface AchievementDao {
     boolean insertResult(Result result);
     int selectResultCount();
     boolean deleteAchievement(@Param("id") int id);
+
+    Result selectResultWithId(@Param("id") int id);
 }

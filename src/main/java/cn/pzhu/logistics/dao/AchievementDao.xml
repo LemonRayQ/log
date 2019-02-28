@@ -20,4 +20,7 @@
     <delete id="deleteAchievement" parameterType="java.lang.Integer">
         delete from result where id = ${id};
     </delete>
+    <select id="selectResultWithId" resultMap="result" parameterType="java.lang.Integer">
+        select id,title,content,path from result where id = ${id}
+    </select>
 </mapper>
