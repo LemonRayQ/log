@@ -157,7 +157,7 @@
                         //上传base64
                         $.ajax({
                             url: "./uploadBase64",
-                            type: "get",
+                            type: "post",
                             data: {base64Data: result.toDataURL(uploadedImageType)},
                             success: function (data) {
                                 alert("上传成功,请添加标题和成果内容!");

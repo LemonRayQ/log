@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-            + path + "/";
+    String path = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+            + request.getContextPath() + "/";
 %>
 <!DOCTYPE html>
 <html>
@@ -11,19 +10,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>登录</title>
-    <link rel="icon" href="<%=basePath%>title.ico" type="image/x-icon"/>
+    <link rel="icon" href="<%=path%>/title.ico" type="image/x-icon"/>
 
     <!-- 引入MD5 -->
-    <script type="text/javascript" src="<%=basePath%>Home/js/md5.min.js"></script>
+    <script type="text/javascript" src="<%=path%>/Home/js/md5.min.js"></script>
 
     <!-- 引入bootstrap -->
-    <link rel="stylesheet" href="<%=basePath%>backdemo/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<%=path%>/backdemo/public/css/bootstrap.min.css">
     <%--<script type="text/javascript" src="../backdemo/public/js/jquery-3.3.1.min.js"></script>--%>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="<%=basePath%>backdemo/public/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="<%=basePath%>backdemo/public/icon/font_9rqbtihwbsm/iconfont.js"></script>
+    <%--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>--%>
+    <script src="<%=path%>/Home/js/http_code.jquery.com_jquery-3.1.1.js"></script>
+    <script type="text/javascript" src="<%=path%>/backdemo/public/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="<%=path%>/backdemo/public/icon/font_9rqbtihwbsm/iconfont.js"></script>
     <!-- 自定义样式 -->
-    <link rel="stylesheet" href="<%=basePath%>Home/login/css/login.css">
+    <link rel="stylesheet" href="<%=path%>/Home/login/css/login.css">
 
 
 
@@ -43,7 +43,7 @@
                 document.getElementById("password").value = md5( md5(pas) + time );
                 var form = new FormData(document.getElementById("form"));
                 $.ajax({
-                    url: "<%=basePath%>login",
+                    url: "<%=path%>/login",
                     type: "post",
                     data: form,
                     processData: false,
