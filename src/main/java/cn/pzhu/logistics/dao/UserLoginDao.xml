@@ -10,4 +10,8 @@
     <select id="login" parameterType="UserLogin" resultMap="userLogin">
       select * from user_login where user_id = #{userId} and identity = #{identity}
     </select>
+
+    <update id="updatePassword">
+        update user_login set password = #{newPassword} where identity = #{identity} and password = #{oldPassword}
+    </update>
 </mapper>

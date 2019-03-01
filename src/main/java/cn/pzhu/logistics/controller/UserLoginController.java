@@ -1,14 +1,12 @@
 package cn.pzhu.logistics.controller;
 
 import cn.pzhu.logistics.pojo.UserLogin;
-import cn.pzhu.logistics.service.ClassifyService;
-import cn.pzhu.logistics.service.DepartService;
-import cn.pzhu.logistics.service.NewsService;
 import cn.pzhu.logistics.service.UserService;
 import cn.pzhu.logistics.util.Conver2MD5;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -23,59 +21,45 @@ public class UserLoginController {
     @Resource(name = "userService")
     private UserService userService;
 
-    @Resource(name = "departService")
-    private DepartService departService;
-
-    @Resource(name = "classifyService")
-    private ClassifyService classifyService;
-
-    @Resource(name = "newsService")
-    private NewsService newsService;
-
-    @Resource(name = "newsController")
-    private NewsController newsController;
-
     @RequestMapping(value = "logout")
     public String logout(HttpSession session) {
         session.setAttribute("loginFlag", null);
-        session.setAttribute("superFlag",null);
+        session.setAttribute("superFlag", null);
         return "redirect:index.jsp";
     }
 
 
     /**
+     * 登录
      *
-     * 功能描述:
-     *
-     * @param:
-     * @return:
-     * @auther: Impassive_y
-     * @date: 2018/11/7 22:20
+     * @param userLogin 用户登录信息
+     * @param session   session模块
+     * @param request   request请求
+     * @return 登录结果
      */
     @RequestMapping(value = "login")
     @ResponseBody
     public String login(UserLogin userLogin, HttpSession session, HttpServletRequest request) {
 
         String time = request.getSession().getAttribute("time").toString();
-        request.getSession().setAttribute("time",null);
+        request.getSession().setAttribute("time", null);
 
         boolean b = false;
 
         UserLogin login = userService.login(userLogin);
 
-        if(login != null){
+        if (login != null) {
             String password = login.getPassword();
             String pa = password + time;
             String md5 = Conver2MD5.getMD5(pa);
 
-            if(userLogin.getPassword().equals(md5)){
+            if (userLogin.getPassword().equals(md5)) {
                 b = true;
             }
 
         }
 
         if (b) {
-
             if ("0".equals(request.getParameter("identity"))) {
                 session.setAttribute("loginFlag", userLogin);
             } else {
@@ -88,23 +72,33 @@ public class UserLoginController {
 
     }
 
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    @RequestMapping("updatePassword")
+    public String updatePassword() {
+        return "backdemo/publicpages/updatePassword";
     }
 
-    public void setDepartService(DepartService departService) {
-        this.departService = departService;
+    @RequestMapping("updateAdminPassword")
+    public ModelAndView updateAdminPassword(Integer identity, String oldPassword, String newPassword,
+                                            String confirmPassword, HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("backdemo/publicpages/updatePassword");
+
+        if (!newPassword.equals(confirmPassword)) {
+            //前端判断条件，success为更改成功
+            request.setAttribute("updatePassword","error");
+            return modelAndView;
+        }
+
+        boolean b = userService.updatePassword(identity, oldPassword, newPassword);
+
+        if(b){
+            request.setAttribute("updatePassword","success");
+        }else{
+            request.setAttribute("updatePassword","error");
+        }
+
+
+        return modelAndView;
     }
 
-    public void setClassifyService(ClassifyService classifyService) {
-        this.classifyService = classifyService;
-    }
-
-    public void setNewsService(NewsService newsService) {
-        this.newsService = newsService;
-    }
-
-    public void setNewsController(NewsController newsController) {
-        this.newsController = newsController;
-    }
 }

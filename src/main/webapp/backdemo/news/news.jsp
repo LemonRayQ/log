@@ -208,8 +208,21 @@
                 </span>
                     &nbsp; &nbsp;
                     <span class="s-title">
-                    <a href="./selectApprovalNews">新闻审核</a>
+                        <a href="./selectApprovalNews">新闻审核</a>
+                    </span>
+                </p>
+            </div>
+            <div class="sidebar-item">
+                <p>
+                <span class="s-icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xinxi"></use>
+                    </svg>
                 </span>
+                    &nbsp; &nbsp;
+                    <span class="s-title">
+                        <a href="./updatePassword">密码修改</a>
+                    </span>
                 </p>
             </div>
         </c:if>

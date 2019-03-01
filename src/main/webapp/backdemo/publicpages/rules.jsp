@@ -211,6 +211,19 @@
                 </span>
                     </p>
                 </div>
+                <div class="sidebar-item">
+                    <p>
+                <span class="s-icon">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-xinxi"></use>
+                    </svg>
+                </span>
+                        &nbsp; &nbsp;
+                        <span class="s-title">
+                        <a href="./updatePassword">密码修改</a>
+                    </span>
+                    </p>
+                </div>
             </c:if>
         </div>
         <!-- 右边正文部分 -->
