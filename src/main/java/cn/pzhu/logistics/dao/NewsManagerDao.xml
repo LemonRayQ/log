@@ -34,16 +34,16 @@
     </select>
 
     <select id="selectOfficeNews" parameterType="Integer" resultMap="news">
-         select * FROM News,Department,Classify WHERE Department.dept_id = News.dept_id AND Classify.classify_id = News.class_id AND News.class_id = #{classId} AND News.dept_id = #{deptId} ORDER BY TIME DESC LIMIT 0,9
+         select * FROM News,Department,Classify WHERE Department.dept_id = News.dept_id AND Classify.classify_id = News.class_id AND News.class_id = #{classId} AND News.dept_id = #{deptId} and news.approval=1 ORDER BY TIME DESC LIMIT 0,9
     </select>
     <select id="selectAllNews" resultMap="news" parameterType="Integer">
        <if test="classId == 1">
            SELECT * FROM News,Classify,Department WHERE News.class_id = Classify.classify_id AND News.dept_id = Department.dept_id AND
-           News.class_id IN (1,12,13,14) ORDER BY TIME DESC LIMIT ${start},9
+           News.class_id IN (1,12,13,14) and news.approval=1 ORDER BY TIME DESC LIMIT ${start},9
        </if>
         <if test="classId != 1">
             SELECT * FROM News,Classify,Department WHERE News.class_id = Classify.classify_id AND News.dept_id = Department.dept_id AND
-            News.class_id = ${classId} ORDER BY TIME DESC LIMIT ${start},9
+            News.class_id = ${classId} and news.approval=1 ORDER BY TIME DESC LIMIT ${start},9
         </if>
     </select>
     <select id="conditionsOfQueryNews" resultMap="news">
@@ -106,11 +106,11 @@
     <select id="selectNewsWithClassify" resultMap="news">
         <if test="classify == 1">
             select news_id,title,content,News.time,path,readNum,Department.dept_id,Department.dept_name,Classify.classify_id,Classify.classify_name from News,Department,Classify where Department.dept_id = News.dept_id and
-            Classify.classify_id = News.class_id and classify_id in (1,12,13,14) order by time Desc limit ${top},5
+            Classify.classify_id = News.class_id and classify_id in (1,12,13,14) and news.approval = 1 order by time Desc limit ${top},5
         </if>
         <if test="classify != 1">
             select news_id,title,content,News.time,path,readNum,Department.dept_id,Department.dept_name,Classify.classify_id,Classify.classify_name from News,Department,Classify where Department.dept_id = News.dept_id and
-            Classify.classify_id = News.class_id and classify_id = ${classify} order by time Desc limit ${top},5
+            Classify.classify_id = News.class_id and classify_id = ${classify} and news.approval = 1 order by time Desc limit ${top},5
         </if>
     </select>
     <select id="selectNewsWithName" resultMap="news">
